@@ -61,20 +61,20 @@
     <!-- Start Header Area -->
     <header class="header-area">
         <!-- Start Top Header -->
-        <div class="top-header">
+        {{-- <div class="top-header">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12 col-md-12">
                         <marquee style="color: #ffffff;">
-                            {{-- @foreach ($text as $p) --}}
+                            @foreach ($text as $p)
                                 <i class="ri-notification-2-line p-1"></i>
-                                {{-- {{ $p['isi'] }} --}}
-                            {{-- @endforeach --}}
+                                {{ $p['isi'] }}
+                            @endforeach
                         </marquee>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Start Top Header -->
         
         <!-- Start Navbar Area -->
@@ -100,7 +100,7 @@
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             @if (empty($logo['logo']))
-                                <img style="height: 60px; margin-left: 20px;" src="{{ asset('public/admin/images/identitas/sumedang.png') }}" alt="logo">
+                                <img style="height: 60px; margin-left: 20px;" src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo">
                             @else
                                 <img style="height: 60px; margin-left: 20px;" src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}" alt="logo">
                             @endif
@@ -133,7 +133,7 @@
 
                             <div class="others-options">
                                 <ul>
-                                    <li>
+                                    {{-- <li>
                                         <div class="option-item">
                                             <i class="search-btn ri-search-line"></i>
                                             <i class="close-btn ri-close-line"></i>
@@ -150,7 +150,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="#" class="call">
                                             <i class="ri-phone-fill"></i>
@@ -305,7 +305,7 @@
     <div class="copy-right-area">
         <div class="container">
             <p>
-                Copyright <i class="ri-copyright-line"></i> 2023 KKN TEMATIK Kelompok Desa Tugu. <a href="https://teknik.umpo.ac.id">Universitas Muhammadiyah Ponorogo</a>
+                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com">Yoga Dev</a>
             </p>
         </div>
     </div>

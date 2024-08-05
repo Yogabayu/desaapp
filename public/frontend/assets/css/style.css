@@ -48,6 +48,7 @@ Default Style
 ============================*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800&amp;display=swap");
+
 body {
   font-size: 15px;
   font-family: "Open Sans", sans-serif;
@@ -73,14 +74,14 @@ a:focus {
 button {
   outline: 0 !important;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
   padding: 0;
 }
 
 button:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -96,11 +97,20 @@ h3 {
 */
 .d-table {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .d-table-cell {
-  vertical-align: middle;
+  /* vertical-align: middle; */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+}
+
+.curousel-image {
+  max-width: 1024px;
+  max-height: 400px;
+  border-radius: 10px;
 }
 
 p {
@@ -149,14 +159,14 @@ img {
   color: #000000;
   background-color: transparent;
   -webkit-box-shadow: unset;
-          box-shadow: unset;
+  box-shadow: unset;
   outline: 0;
   border: 1px solid #00aa55;
 }
 
 .form-control:hover:focus, .form-control:focus {
   -webkit-box-shadow: unset;
-          box-shadow: unset;
+  box-shadow: unset;
 }
 
 textarea.form-control {
@@ -425,12 +435,12 @@ Header Area Style
 
 .top-header .header-right-content .my-account li .my-account-link {
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   padding: 20px;
   list-style-type: none;
   -webkit-transform: scaleX(0);
-          transform: scaleX(0);
+  transform: scaleX(0);
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   position: absolute;
@@ -476,7 +486,7 @@ Header Area Style
 
 .top-header .header-right-content .my-account:hover .my-account-link {
   -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .top-header .header-right-content .languages-switcher {
@@ -509,7 +519,7 @@ Header Area Style
 .top-header .header-right-content .languages-switcher select:focus {
   border: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   outline: none;
 }
 
@@ -533,9 +543,9 @@ Navbar Area Style
   position: fixed;
   background-color: #ffffff !important;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-          animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
 
 .desktop-nav {
@@ -611,7 +621,7 @@ Navbar Area Style
 
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-menu {
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background: #ffffff;
@@ -883,7 +893,7 @@ Navbar Area Style
   z-index: 2;
   padding: 20px;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   margin-top: 18px;
 }
 
@@ -988,8 +998,8 @@ Others Option For Responsive Area Style
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 30px;
 }
 
@@ -1022,7 +1032,7 @@ Others Option For Responsive Area Style
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   -webkit-transform: scaleY(0);
-          transform: scaleY(0);
+  transform: scaleY(0);
   z-index: 2;
   padding-left: 15px;
   padding-right: 15px;
@@ -1032,7 +1042,7 @@ Others Option For Responsive Area Style
   opacity: 1;
   visibility: visible;
   -webkit-transform: scaleY(1);
-          transform: scaleY(1);
+  transform: scaleY(1);
 }
 
 .others-option-for-responsive .others-option {
@@ -1094,7 +1104,7 @@ Others Option For Responsive Area Style
   z-index: 2;
   padding: 20px;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   margin-top: 18px;
 }
 
@@ -1215,7 +1225,7 @@ Modal Area Style
 .modal .modal-content {
   border-radius: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
 }
 
@@ -1268,6 +1278,7 @@ Hero Slider Area Style
 ======================================================*/
 .hero-slider-area {
   position: relative;
+
 }
 
 .hero-slider-area .container-fluid {
@@ -1280,7 +1291,7 @@ Hero Slider Area Style
   right: 20px;
   z-index: 1;
   -webkit-transform: translateY(-100px);
-          transform: translateY(-100px);
+  transform: translateY(-100px);
 }
 
 .hero-slider-area .thumbs-wrap .owl-thumbs .owl-thumb-item {
@@ -1350,7 +1361,7 @@ Hero Slider Area Style
 }
 
 .hero-slider-item {
-  height: 720px;
+  /* height: 720px; */
   background-image: -webkit-gradient(linear, left top, right top, from(#f1faf4), to(#e7f4eb));
   background-image: linear-gradient(to right, #f1faf4, #e7f4eb);
   position: relative;
@@ -1364,7 +1375,7 @@ Hero Slider Area Style
   right: 0;
   z-index: -1;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .hero-slider-item .slider-shape img {
@@ -1416,9 +1427,9 @@ Banner Area Style
   background-image: -webkit-gradient(linear, left top, right top, from(#96c74f), to(#32ba9f));
   background-image: linear-gradient(to right, #96c74f, #32ba9f);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 55%, 0% 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 55%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0% 100%);
   -webkit-clip-path: none;
-          clip-path: none;
+  clip-path: none;
   z-index: -1;
 }
 
@@ -1428,7 +1439,7 @@ Banner Area Style
   left: 30px;
   z-index: 1;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .banner-area .container-fluid {
@@ -1441,8 +1452,8 @@ Banner Area Style
   display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
   position: absolute;
   top: 28%;
   left: 5px;
@@ -1451,7 +1462,7 @@ Banner Area Style
   padding: 0;
   margin: 0;
   -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 .banner-area ul li {
@@ -1461,7 +1472,7 @@ Banner Area Style
 .banner-area ul li a {
   display: block;
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
   color: #ffffff;
   font-weight: 600;
   text-transform: capitalize;
@@ -1491,7 +1502,7 @@ Banner Area Style
 .banner-area.banner-area-style-three::before {
   background-image: none;
   -webkit-clip-path: none;
-          clip-path: none;
+  clip-path: none;
   background-color: #3a3650;
   opacity: 0.9;
 }
@@ -1618,12 +1629,11 @@ Services Area Style
   top: 25px;
   left: 30px;
   text-transform: uppercase;
-  background-image: -webkit-gradient(linear, left top, right top, from(#96c74f), to(#32ba9f));
   background-image: linear-gradient(to right, #96c74f, #32ba9f);
+  background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
+  color: transparent;
+  transition: all 0.5s ease;
 }
 
 .services-area.services-area-style-two .single-services-box h3 {
@@ -1688,7 +1698,7 @@ Services Area Style
 .single-services-box {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding: 30px;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1724,7 +1734,7 @@ Services Area Style
   right: 0;
   z-index: -1;
   -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  filter: grayscale(100%);
   opacity: 0.4;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1733,14 +1743,14 @@ Services Area Style
 .single-services-box:hover {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .single-services-box:hover .services-shape {
   -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .single-services-box:hover .read-more {
@@ -1750,7 +1760,7 @@ Services Area Style
 .awesome-single-services {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1801,7 +1811,7 @@ Services Area Style
 
 .awesome-single-services:hover {
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .awesome-single-services:hover .blog-content h3 a {
@@ -1901,7 +1911,7 @@ Who We Are Area Style
   left: -30px;
   z-index: -1;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
   display: none;
 }
 
@@ -1982,7 +1992,7 @@ Discover Area Style
   padding: 0;
   background-color: transparent;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .discover-area.discover-area-style-three .discover-img-3 {
@@ -2014,11 +2024,11 @@ Discover Area Style
   width: 100%;
   height: 100%;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2065,14 +2075,14 @@ Discover Area Style
   top: 30px;
   left: 30px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .discover-bg .shape.discover-shape-2 {
   bottom: 180px;
   right: 20px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .discover-bg .row {
@@ -2083,7 +2093,7 @@ Discover Area Style
 .discover-content {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding: 38px;
 }
 
@@ -2147,11 +2157,11 @@ Discover Area Style
   width: 100%;
   height: 100%;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2315,7 +2325,7 @@ Events Area Style
 .single-event-box {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -2371,7 +2381,7 @@ Events Area Style
 
 .single-event-box:hover {
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .single-event-box:hover .blog-content h3 a {
@@ -2482,6 +2492,7 @@ Project Area Style
 ======================================================*/
 .project-area {
   overflow: hidden;
+  padding: 1rem;
 }
 
 .project-area .owl-nav {
@@ -2507,7 +2518,7 @@ Project Area Style
   top: 50%;
   left: 50px;
   -webkit-transform: translateY(-33px);
-          transform: translateY(-33px);
+  transform: translateY(-33px);
 }
 
 .project-area .owl-nav .owl-prev i, .project-area .owl-nav .owl-next i {
@@ -2628,7 +2639,7 @@ Councillor Area Style
   text-align: center;
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding: 30px;
   z-index: 1;
   position: relative;
@@ -2734,14 +2745,14 @@ Blog Area Style
   top: 30px;
   left: 30px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .blog-area .shape.blog-shape-2 {
   bottom: 30px;
   right: 30px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .blog-area.blog-area-three {
@@ -2751,7 +2762,7 @@ Blog Area Style
 
 .blog-area.blog-area-three .single-blog-box {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .blog-area.blog-area-three .single-blog-box .blog-content {
@@ -2772,7 +2783,7 @@ Blog Area Style
 .single-blog-box {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -2822,7 +2833,7 @@ Blog Area Style
 
 .single-blog-box:hover {
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .single-blog-box:hover .blog-content h3 a {
@@ -2852,14 +2863,14 @@ Footer Area Style
   top: 30px;
   left: 30px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .footer-area .shape.footer-shape-2 {
   bottom: 30px;
   right: 30px;
   -webkit-animation: moveBounce 5s linear infinite;
-          animation: moveBounce 5s linear infinite;
+  animation: moveBounce 5s linear infinite;
 }
 
 .single-footer-widget {
@@ -3074,60 +3085,68 @@ Copy Right Area Style
 @-webkit-keyframes moveBounce {
   0% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
+
   50% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
+
   100% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 
 @keyframes moveBounce {
   0% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
+
   50% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
+
   100% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 
 @-webkit-keyframes scale {
   0% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
   }
+
   50% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
+
   100% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
   }
 }
 
 @keyframes scale {
   0% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
   }
+
   50% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
+
   100% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
   }
 }
 
@@ -3340,7 +3359,7 @@ FAQ Area CSS
 
 .faq-accordion .accordion .accordion-title.active i {
   -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .faq-accordion .accordion .accordion-title.active i::before {
@@ -3537,7 +3556,7 @@ Main Contact Area Style
   padding: 40px;
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 }
 
 .main-contact-area .form-group {
@@ -3662,7 +3681,7 @@ Main Contact Area Style
 .book-action {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding: 50px;
   max-width: 930px;
   margin: auto;
@@ -3814,7 +3833,7 @@ User Area CSS
 .user-area .user-form-content .user-form {
   border-bottom: none;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   padding: 30px;
   margin: auto;
@@ -3831,7 +3850,7 @@ User Area CSS
 
 .user-area .user-form-content .user-form .form-group .form-control {
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 }
 
 .user-area .user-form-content .user-form .login-action {
@@ -3847,9 +3866,9 @@ User Area CSS
   font-size: 16px;
 }
 
-.user-area .user-form-content .user-form .login-action .forgot-login {
-  display: inline-block;
-  float: right;
+.user-area .user-form-content .user-form .login-action {
+  display: flex;
+  align-items: center;
 }
 
 .user-area .user-form-content .user-form .default-btn {
@@ -3963,7 +3982,7 @@ Sidebar Widget Style
   list-style-type: none;
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -3971,7 +3990,7 @@ Sidebar Widget Style
 .sidebar-widget.councilor {
   text-align: center;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   border-radius: 30px 0 0 0;
 }
 
@@ -4000,7 +4019,7 @@ Sidebar Widget Style
 
 .sidebar-widget.councilor .councilor-content ul {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0;
   line-height: 1;
 }
@@ -4024,7 +4043,7 @@ Sidebar Widget Style
   background-color: #e7f4eb;
   padding: 30px;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   position: relative;
   border-radius: 30px 0 0 0;
 }
@@ -4101,7 +4120,7 @@ Sidebar Widget Style
 
 .sidebar-widget.tags ul li a:hover {
   -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+  transform: translateY(-2px);
   background-color: #00aa55;
   color: #ffffff;
   border-color: #00aa55;
@@ -4114,7 +4133,7 @@ Sidebar Widget Style
 .sidebar-widget.advertizing {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   border-radius: 30px 0 0 0;
   padding-bottom: 1px;
 }
@@ -4311,7 +4330,7 @@ Blog Details Content Style
 .blog-details-content .leave-reply form {
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   padding: 30px;
 }
 
@@ -4330,7 +4349,7 @@ Blog Details Content Style
 
 .blog-details-content .leave-reply form .form-group .form-control {
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 }
 
 .blog-details-content .leave-reply form .form-group .form-control::-webkit-input-placeholder {
@@ -4355,7 +4374,7 @@ Blog Post Area Style
 .blog-post-area .single-blog-box {
   padding: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin-bottom: 40px;
 }
 
@@ -4517,7 +4536,7 @@ Event Details Style
 .event-widget-sidebar .single-another .another-content {
   padding: 30px;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   border: 1px solid #eeeeee;
 }
@@ -4568,7 +4587,7 @@ Event Details Style
   background-color: #fdfdfd;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
 
@@ -4581,7 +4600,7 @@ Event Details Style
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
   margin-top: -.5rem;
 }
@@ -4601,11 +4620,11 @@ Event Details Style
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .datepickers .arrow {
@@ -4613,20 +4632,20 @@ Event Details Style
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border: 0;
   background-color: #ffffff;
   border-radius: 12px;
   width: 2.5rem;
   height: 2.5rem;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
@@ -4641,16 +4660,14 @@ Event Details Style
 }
 
 .datepickers .datepickers-calendar {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
-  grid-row-gap: 1rem;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 1rem;
 }
 
 .datepickers .day, .datepickers .date {
   -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
 }
 
 .datepickers .day {
@@ -4658,7 +4675,7 @@ Event Details Style
   font-size: .875em;
   font-weight: 500;
   -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
 }
 
 .datepickers .date {
@@ -4670,11 +4687,11 @@ Event Details Style
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border-radius: 6px;
   font-weight: 600;
   border: 2px solid transparent;
@@ -4741,7 +4758,7 @@ Event Details Style
   color: #ff0000;
   display: inline-block;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .error-area .error-content h1 .b {
@@ -5021,11 +5038,11 @@ Preloader Area Style*/
   width: 80px;
   height: 80px;
   -webkit-animation: spin-six 2.5s infinite cubic-bezier(0.17, 0.72, 0.55, 1.66);
-          animation: spin-six 2.5s infinite cubic-bezier(0.17, 0.72, 0.55, 1.66);
+  animation: spin-six 2.5s infinite cubic-bezier(0.17, 0.72, 0.55, 1.66);
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-40px, -50px);
-          transform: translate(-40px, -50px);
+  transform: translate(-40px, -50px);
 }
 
 .preloader .preloader-container {
@@ -5035,11 +5052,11 @@ Preloader Area Style*/
 
 .preloader .pl-spark-1 {
   -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   margin: 0 auto 18px auto;
   position: relative;
   width: 50px;
@@ -5054,27 +5071,27 @@ Preloader Area Style*/
   width: 100%;
   height: 50%;
   -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   background: #00aa55;
   display: block;
   -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
   -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
-          clip-path: polygon(0 0, 100% 0, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
 .preloader .pl-spark-1.pl-spark-2:before {
   -webkit-animation-name: scaleA;
-          animation-name: scaleA;
+  animation-name: scaleA;
 }
 
 .preloader .pl-spark-1.pl-spark-2:after {
   -webkit-animation-name: scaleB;
-          animation-name: scaleB;
+  animation-name: scaleB;
 }
 
 .preloader.preloader-deactivate {
@@ -5084,52 +5101,58 @@ Preloader Area Style*/
 @-webkit-keyframes scaleA {
   from, 50%, to {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
+
   25%, 75% {
     -webkit-transform: scale(-1);
-            transform: scale(-1);
+    transform: scale(-1);
   }
 }
 
 @keyframes scaleA {
   from, 50%, to {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
+
   25%, 75% {
     -webkit-transform: scale(-1);
-            transform: scale(-1);
+    transform: scale(-1);
   }
 }
 
 @-webkit-keyframes scaleB {
   from, 50%, to {
     -webkit-transform: rotate(90deg) scale(0);
-            transform: rotate(90deg) scale(0);
+    transform: rotate(90deg) scale(0);
   }
+
   12.5%, 62.5% {
     -webkit-transform: rotate(90deg) scale(1);
-            transform: rotate(90deg) scale(1);
+    transform: rotate(90deg) scale(1);
   }
+
   37.5%, 87.5% {
     -webkit-transform: rotate(90deg) scale(-1);
-            transform: rotate(90deg) scale(-1);
+    transform: rotate(90deg) scale(-1);
   }
 }
 
 @keyframes scaleB {
   from, 50%, to {
     -webkit-transform: rotate(90deg) scale(0);
-            transform: rotate(90deg) scale(0);
+    transform: rotate(90deg) scale(0);
   }
+
   12.5%, 62.5% {
     -webkit-transform: rotate(90deg) scale(1);
-            transform: rotate(90deg) scale(1);
+    transform: rotate(90deg) scale(1);
   }
+
   37.5%, 87.5% {
     -webkit-transform: rotate(90deg) scale(-1);
-            transform: rotate(90deg) scale(-1);
+    transform: rotate(90deg) scale(-1);
   }
 }
 
@@ -5147,7 +5170,7 @@ Go Top Style*/
   height: 42px;
   line-height: 42px;
   -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   visibility: hidden;
   -webkit-transition: .9s;
   transition: .9s;
@@ -5157,7 +5180,7 @@ Go Top Style*/
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -5233,13 +5256,13 @@ Go Top Style*/
 
 .go-top.active {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   opacity: 1;
   visibility: visible;
   right: 3%;
   top: 87%;
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
 /*
@@ -5268,11 +5291,11 @@ Video wave Style*/
   top: 0;
   left: 3px;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5294,7 +5317,7 @@ Video wave Style*/
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   -webkit-animation: ripple 1.6s ease-out infinite;
-          animation: ripple 1.6s ease-out infinite;
+  animation: ripple 1.6s ease-out infinite;
   background-color: rgba(98, 189, 94, 0.8);
 }
 
@@ -5309,36 +5332,40 @@ Video wave Style*/
 @-webkit-keyframes ripple {
   0%, 35% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   50% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 0.8;
   }
+
   100% {
     opacity: 0;
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
   }
 }
 
 @keyframes ripple {
   0%, 35% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   50% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 0.8;
   }
+
   100% {
     opacity: 0;
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
   }
 }
 
@@ -5385,7 +5412,7 @@ Page-navigation Area Style*/
   font-size: 17px;
   background-color: #f1faf4;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid #eeeeee;
 }
 
@@ -5408,4 +5435,5 @@ Page-navigation Area Style*/
   border-color: #00aa55;
   background-color: #00aa55;
 }
+
 /*# sourceMappingURL=style.css.map */
