@@ -199,7 +199,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-footer-widget">
-                        <a href="{{ url('/') }}" class="logo">
+                        <a href="{{ url('/') }}" class="logo" style="max-width=80px">
                             <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
                                 loading="lazy">
                         </a>
