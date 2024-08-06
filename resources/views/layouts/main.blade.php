@@ -1,34 +1,36 @@
 <!doctype html>
 <html lang="zxx">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap Min CSS --> 
+    <!-- Bootstrap Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-    <!-- Owl Theme Default Min CSS --> 
+    <!-- Owl Theme Default Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.theme.default.min.css') }}">
-    <!-- Owl Carousel Min CSS --> 
+    <!-- Owl Carousel Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
-    <!-- Remixicon CSS --> 
+    <!-- Remixicon CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/remixicon.css') }}">
-    <!-- Flaticon CSS --> 
+    <!-- Flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/flaticon.css') }}">
     <!-- Meanmenu Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.min.css') }}">
-    <!-- Animate Min CSS --> 
+    <!-- Animate Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
-    <!-- Magnific Popup Min CSS --> 
+    <!-- Magnific Popup Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.min.css') }}">
-    <!-- Odometer Min CSS --> 
+    <!-- Odometer Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/odometer.min.css') }}">
-    <!-- Date Picker Min CSS --> 
+    <!-- Date Picker Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/date-picker.min.css') }}">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- C3 Chart css -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -37,46 +39,54 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
+
+    <style>
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .social-icon {
+            display: flex;
+            gap: 10px;
+        }
+
+        .address li,
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-6 {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+    @yield('css')
     <!-- Favicon -->
     {{-- @if (empty($logo['logo']))
         <link rel="icon" type="image/png" href="{{ asset('public/admin/images/identitas/sumedang.png') }}">
-    @else
-        <link rel="icon" type="image/png" href="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}">
-    @endif --}}
+    @else --}}
+        <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/favicon.png') }}">
+    {{-- @endif --}}
     <!-- Title -->
-    {{-- <title>Desa {{ $logo['nama_desa'] }}</title> --}}
-    <title>Desa</title>
+    <title>@yield('title')  Desa XXX </title>
 </head>
 
 <body>
     <!-- Start Preloader Area -->
     <div class="preloader">
         <div class="lds-ripple">
-            <div class="pl-spark-1 pl-spark-2"></div>
+            {{-- <div class="pl-spark-1 pl-spark-2"></div> --}}
+            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="Desa Logo" class="logo-animate">
+            <strong class="desa-name">Desa xxx</strong>
         </div>
     </div>
     <!-- End Preloader Area -->
-    
+
     <!-- Start Header Area -->
     <header class="header-area">
-        <!-- Start Top Header -->
-        {{-- <div class="top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12 col-md-12">
-                        <marquee style="color: #ffffff;">
-                            @foreach ($text as $p)
-                                <i class="ri-notification-2-line p-1"></i>
-                                {{ $p['isi'] }}
-                            @endforeach
-                        </marquee>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <!-- Start Top Header -->
-        
+
         <!-- Start Navbar Area -->
         <div class="navbar-area">
             <div class="mobile-responsive-nav">
@@ -85,9 +95,12 @@
                         <div class="logo">
                             <a href="{{ url('/') }}">
                                 @if (empty($logo['logo']))
-                                    <img style="height: 60px; margin-left: 20px;" src="{{ asset('public/admin/images/identitas/sumedang.png') }}" alt="logo">
+                                    <img style="height: 60px; margin-left: 20px;"
+                                        src="{{ asset('public/admin/images/identitas/sumedang.png') }}" alt="logo">
                                 @else
-                                    <img style="height: 60px; margin-left: 20px;" src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}" alt="logo">
+                                    <img style="height: 60px; margin-left: 20px;"
+                                        src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}"
+                                        alt="logo">
                                 @endif
                             </a>
                         </div>
@@ -100,57 +113,38 @@
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             @if (empty($logo['logo']))
-                                <img style="height: 60px; margin-left: 20px;" src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo">
+                                <img style="height: 60px; margin-left: 20px;"
+                                    src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo">
                             @else
-                                <img style="height: 60px; margin-left: 20px;" src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}" alt="logo">
+                                <img style="height: 60px; margin-left: 20px;"
+                                    src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}" alt="logo">
                             @endif
                         </a>
-                        <?php 
-                            $activemenu = 'beranda';
-                        ?>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item {{ ($activemenu == 'beranda') ? 'active' : '' }}">
+                                <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                                     <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                                 </li>
-                                <li class="nav-item {{ ($activemenu == 'profil') ? 'active' : '' }}">
-                                    <a href="{{ url('/profil') }}" class="nav-link">Profil Desa</a>
+                                <li class="nav-item {{ request()->is('profile') ? 'active' : '' }}">
+                                    <a href="{{ url('/profile') }}" class="nav-link">Profil Desa</a>
                                 </li>
-                                <li class="nav-item {{ ($activemenu == 'galeri') ? 'active' : '' }}">
-                                    <a href="{{ url('/galeri/0') }}" class="nav-link">Galeri</a>
+                                <li class="nav-item {{ request()->is('galeri') ? 'active' : '' }}">
+                                    <a href="{{ url('/galeri') }}" class="nav-link">Galeri</a>
                                 </li>
-                                <li class="nav-item {{ ($activemenu == 'umkm') ? 'active' : '' }}">
+                                <li class="nav-item ">
                                     <a href="{{ url('/umkm') }}" class="nav-link">UMKM</a>
                                 </li>
-                                <li class="nav-item {{ ($activemenu == 'kebudayaan') ? 'active' : '' }}">
+                                <li class="nav-item ">
                                     <a href="{{ url('/kebudayaan') }}" class="nav-link">Kebudayaan</a>
                                 </li>
-                                <li class="nav-item {{ ($activemenu == 'artikel') ? 'active' : '' }}">
+                                <li class="nav-item {{ request()->is('article') ? 'active' : '' }}">
                                     <a href="{{ url('/artikel') }}" class="nav-link">Artikel</a>
                                 </li>
                             </ul>
 
                             <div class="others-options">
                                 <ul>
-                                    {{-- <li>
-                                        <div class="option-item">
-                                            <i class="search-btn ri-search-line"></i>
-                                            <i class="close-btn ri-close-line"></i>
-                                            
-                                            <div class="search-overlay search-popup">
-                                                <div class='search-box'>
-                                                    <form class="search-form">
-                                                        <input class="search-input" name="search" placeholder="Pencarian" type="text">
-
-                                                        <button class="search-button" type="submit">
-                                                            <i class="ri-search-line"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li> --}}
                                     <li>
                                         <a href="#" class="call">
                                             <i class="ri-phone-fill"></i>
@@ -163,7 +157,7 @@
                     </nav>
                 </div>
             </div>
-            
+
             <div class="others-option-for-responsive">
                 <div class="container">
                     <div class="dot-menu">
@@ -173,20 +167,21 @@
                             <div class="circle circle-three"></div>
                         </div>
                     </div>
-                    
+
                     <div class="container">
                         <div class="option-inner">
                             <div class="others-option justify-content-center d-flex align-items-center">
                                 <ul>
-                                    <li>
+                                    {{-- <li>
                                         <div class="option-item">
                                             <i class="search-btn ri-search-line"></i>
                                             <i class="close-btn ri-close-line"></i>
-                                            
+
                                             <div class="search-overlay search-popup">
                                                 <div class='search-box'>
                                                     <form class="search-form">
-                                                        <input class="search-input" name="search" placeholder="Pencarian" type="text">
+                                                        <input class="search-input" name="search"
+                                                            placeholder="Pencarian" type="text">
 
                                                         <button class="search-button" type="submit">
                                                             <i class="ri-search-line"></i>
@@ -195,7 +190,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="#" class="call">
                                             <i class="ri-phone-fill"></i>
@@ -216,75 +211,50 @@
     @yield('content')
 
     <!-- Start Footer Area -->
-    <footer class="footer-area pt-100 pb-70">
+    <footer class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-footer-widget single-bg">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-footer-widget">
                         <a href="{{ url('/') }}" class="logo">
-                            @if (empty($logo['logo']))
-                                <img style="width: 10%;" src="{{ asset('public/admin/images/identitas/sumedang.png') }}" alt="Image">
-                            @else
-                                <img style="width: 10%;" src="{{ asset('public/admin/images/identitas/' . $logo['logo']) }}" alt="Image">
-                            @endif
+                            <img src="{{ asset('public/admin/images/identitas/' . ($logo['logo'] ?? 'sumedang.png')) }}"
+                                alt="Logo Desa">
                         </a>
-
-                        {{-- <p>{{ 'Desa ' . $logo['nama_desa'] . ', Kecamatan ' . $logo['nama_kecamatan'] . ', Kabupaten ' . $logo['nama_kabupaten'] . ', ' . $logo['nama_propinsi'] . ' ' . $logo['kode_pos'] }}</p>  --}}
-                        <p>Desa</p> 
-
-                        <ul class="social-icon">
-                            <li>
-                                <a href="https://www.facebook.com/pemerintah.desa.tugu" target="_blank">
-                                    <i class="ri-facebook-fill"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/pemdestugumlarak" target="_blank">
-                                    <i class="ri-instagram-line"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://api.whatsapp.com/" target="_blank">
-                                    <i class="ri-whatsapp-fill"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/" target="_blank">
-                                    <i class="ri-youtube-fill"></i>
-                                </a>
-                            </li>
+                        <p class="mt-3">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]</p>
+                        <ul class="social-icon mt-4">
+                            <li><a href="https://www.facebook.com/pemerintah.desa.tugu" target="_blank"><i
+                                        class="ri-facebook-fill"></i></a></li>
+                            <li><a href="https://www.instagram.com/pemdestugumlarak" target="_blank"><i
+                                        class="ri-instagram-line"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/" target="_blank"><i
+                                        class="ri-whatsapp-fill"></i></a></li>
+                            <li><a href="https://www.youtube.com/" target="_blank"><i
+                                        class="ri-youtube-fill"></i></a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="single-footer-widget">
-                        <h3>Hubungi kami</h3>
-
+                        <h3>Hubungi Kami</h3>
                         <ul class="address">
-                            <li>
-                                <i class="ri-map-pin-fill"></i>
-                                {{-- {{ $logo['alamat_kantor'] }} --}}
-                                alamat
-                            </li>
-                            <li>
-                                <i class="ri-mail-open-fill"></i>
-                                <a href="#">
-                                    <span class="__cf_email__" data-cfemail="">
-                                        {{-- {{ $logo['email_desa'] }} --}}
-                                        email
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <i class="ri-global-fill"></i>
-                                {{-- {{ $logo['website'] }} --}}
-                                website
-                            </li>
-                            <li class="location">
-                                <i class="ri-phone-fill"></i>
-                                {{-- <a href="#">{{ $logo['telepon'] }}</a> --}}
-                            </li>
+                            <li><i class="ri-map-pin-fill"></i> [Alamat Kantor]</li>
+                            <li><i class="ri-mail-open-fill"></i> <a href="mailto:[Email Desa]">[Email Desa]</a></li>
+                            <li><i class="ri-global-fill"></i> [Website]</li>
+                            <li><i class="ri-phone-fill"></i> <a href="tel:[Nomor Telepon]">[Nomor Telepon]</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-footer-widget">
+                        <h3>Tautan Cepat</h3>
+                        <ul class="quick-links">
+                            <li><a href="#">Beranda</a></li>
+                            <li><a href="#">Profil Desa</a></li>
+                            <li><a href="#">Layanan</a></li>
+                            <li><a href="#">Berita</a></li>
+                            <li><a href="#">Kontak</a></li>
                         </ul>
                     </div>
                 </div>
@@ -292,11 +262,11 @@
         </div>
 
         <div class="shape footer-shape-1">
-            <img src="{{ asset('frontend/assets/images/footer-shape-1.png') }}" alt="Image">
+            <img src="{{ asset('frontend/assets/images/footer-shape-1.png') }}" alt="Footer Shape">
         </div>
 
         <div class="shape footer-shape-2">
-            <img src="{{ asset('frontend/assets/images/footer-shape-2.png') }}" alt="Image">
+            <img src="{{ asset('frontend/assets/images/footer-shape-2.png') }}" alt="Footer Shape">
         </div>
     </footer>
     <!-- End Footer Area -->
@@ -305,23 +275,31 @@
     <div class="copy-right-area">
         <div class="container">
             <p>
-                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com">Yoga Dev</a>
+                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com">Yoga
+                    Dev</a>
             </p>
         </div>
     </div>
     <!-- End Copy Right Area -->
-    
+
     <!-- Start Go Top Area -->
     <div class="go-top">
         <i class="ri-arrow-up-s-fill"></i>
         <i class="ri-arrow-up-s-fill"></i>
     </div>
     <!-- End Go Top Area -->
-    
 
+    @yield('scripts')
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    </script>
     <!-- Jquery Min JS -->
-    <!-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
-    <script src="{{ asset('frontend/assets/js/jquery.min.js') }}"></script> 
+    <script src="{{ asset('frontend/assets/js/jquery.min.js') }}"></script>
     <!-- Bootstrap Bundle Min JS -->
     <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Meanmenu Min JS -->
@@ -352,14 +330,15 @@
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
     <script>
-        if($(".category").length !== 0){
-            $(".category").click(function(){
+        if ($(".category").length !== 0) {
+            $(".category").click(function() {
                 $(".category").removeAttr("style");
-                $(".category#"+ this.id).css("color", "#00aa55");
+                $(".category#" + this.id).css("color", "#00aa55");
                 $(".tab-pane").removeClass("active show");
-                $(".tab-pane#"+ this.id).addClass("active show");
+                $(".tab-pane#" + this.id).addClass("active show");
             });
         }
     </script>
 </body>
+
 </html>

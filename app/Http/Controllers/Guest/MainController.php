@@ -73,4 +73,14 @@ class MainController extends Controller
     
         return view('pages.guest.home', compact('sliders', 'data','artikelList'));
     }
+
+    public function profile(){
+        return view('pages.guest.profil');
+    }
+    public function galeri(){
+        return view('pages.guest.galeri');
+    }
+    public function article(){
+        return view('pages.guest.article');
+    }
 }

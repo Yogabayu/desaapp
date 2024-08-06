@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[MainController::class, 'index']);
+Route::middleware('guest')->group(function () {
+    Route::get('/', [MainController::class, 'index']);
+    Route::get('profile', [MainController::class, 'profile']);
+    Route::get('galeri', [MainController::class, 'galeri']);
+    Route::get('article', [MainController::class, 'article']);
+});
+

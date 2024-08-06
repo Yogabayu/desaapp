@@ -11,13 +11,12 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="hero-slider-content pr-15">
-                                        <span class="top-title">
-                                            Selamat Datang di Portal Web Desa
-                                            Cepoko
+                                        <span class="top-title" data-aos="fade-up" data-aos-delay="100">
+                                            Selamat Datang di Portal Web Desa Cepoko
                                         </span>
-                                        <h2>{{ $slider['title'] }}</h2>
+                                        <h2 data-aos="fade-left" data-aos-delay="300">{{ $slider['title'] }}</h2>
                                         <br>
-                                        <div class="slider-btn">
+                                        <div class="slider-btn" data-aos="fade-right" data-aos-delay="500">
                                             <a href="{{ $slider['link'] }}" class="default-btn">
                                                 Lihat selengkapnya
                                             </a>
@@ -28,11 +27,8 @@
                                 <div class="col-lg-6">
                                     @if ($slider['type'] == 'image')
                                         <div class='slider-img pl-15'>
-                                            {{-- <img src="{{ asset('frontend/assets/images/sawah.png') }}" alt='{{ $slider['title'] }}'> --}}
-                                            <img src="{{ $slider['file'] }}" alt='{{ $slider['title'] }}' class="curousel-image" >
+                                            <img src="{{ $slider['file'] }}" alt='{{ $slider['title'] }}' class="curousel-image" data-aos="fade-up" data-aos-delay="700">
                                         </div>
-                                    {{-- @else
-                                        <video autoplay loop src="{{ $slider['file'] }}" width='100%'></video> --}}
                                     @endif
                                 </div>
                             </div>
@@ -62,64 +58,54 @@
         <!-- End Carousel Thumbs -->
     </section>
     <!-- End Hero Slide Area -->
-
-     <!-- Start Services Area -->
+    
+    <!-- Start Services Area -->
     <section class="services-area pt-100 pb-70">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up" data-aos-delay="100">
                 <h2>Pelayanan Kami</h2>
             </div>
-
+    
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="single-services-box">
                         <span class="flaticon-group"></span>
-
                         <h3>
                             <a href="services-details.html">
                                 Pelayanan Mandiri
                             </a>
                         </h3>
-
-                        <p>Meningkatkan pengelolaan dan pelayanan informasi yang berkualitas, benar dan bertanggung jawab.
-                        </p>
-
+                        <p>Meningkatkan pengelolaan dan pelayanan informasi yang berkualitas, benar dan bertanggung jawab.</p>
                         <div class="services-shape">
                             <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
+    
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="single-services-box">
                         <span class="flaticon-buildings"></span>
-
                         <h3>
                             <a href="services-details.html">
                                 Pelayanan Umum
                             </a>
                         </h3>
-
                         <p>Meningkatkan dan mengembangkan kompetensi dan kualitas SDM dalam bidang pelayanan informasi.</p>
-
                         <div class="services-shape">
                             <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
+    
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="single-services-box">
                         <span class="flaticon-government"></span>
-
                         <h3>
                             <a href="services-details.html">
                                 Pemantauan Covid-19
                             </a>
                         </h3>
-
                         <p>Mewujudkan keterbukaan informasi Pemerintah Desa Tugu dengan proses yang cepat, tepat, mudah.</p>
-
                         <div class="services-shape">
                             <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
                         </div>
@@ -139,7 +125,7 @@
                         @foreach([
                             ['count' => $data['penduduk'], 'title' => 'Jumlah Penduduk'],
                             ['count' => $data['dusun'], 'title' => 'Total Dusun'],
-                            ['count' => $data['rt'], 'title' => 'Total Kebudayaan'],
+                            ['count' => $data['rt'], 'title' => 'Total RT'],
                             ['count' => $data['umkm'], 'title' => 'Total UMKM']
                         ] as $counter)
                             <div class="col-lg-3 col-sm-6">
@@ -189,30 +175,30 @@
     <!-- End Discover Area -->
 
     <!-- Start Project Area -->
-    <section class="project-area bg-color pt-100 pb-70">
+    <section class="project-area bg-color pt-100 pb-70" data-aos="fade-up" data-aos-delay="100">
         <div class="container-fluid p-0">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up" data-aos-delay="200">
                 <h2>Perangkat Desa</h2>
             </div>
-
-            <div class="project-slider owl-carousel owl-theme">
+    
+            <div class="project-slider owl-carousel owl-theme" data-aos="fade-up" data-aos-delay="300">
                 <?php 
                     $albumList = [
-                        ['id' => 1, 'url' => 'frontend/assets/images/services/services-8.jpg'],
-                        ['id' => 2, 'url' => 'frontend/assets/images/services/services-8.jpg'],
-                        ['id' => 3, 'url' => 'frontend/assets/images/services/services-8.jpg'],
-                        ['id' => 4, 'url' => 'frontend/assets/images/services/services-8.jpg'],
-                        ['id' => 5, 'url' => 'frontend/assets/images/services/services-8.jpg'],
-                        ['id' => 6, 'url' => 'frontend/assets/images/services/services-8.jpg'],
+                        ['id' => 1, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'John Doe', 'position' => 'Kepala Desa'],
+                        ['id' => 2, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'Jane Smith', 'position' => 'Sekretaris Desa'],
+                        ['id' => 3, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'Mike Johnson', 'position' => 'Bendahara'],
+                        ['id' => 4, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'Sarah Brown', 'position' => 'Kepala Urusan'],
+                        ['id' => 5, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'David Lee', 'position' => 'Kepala Seksi'],
+                        ['id' => 6, 'url' => 'frontend/assets/images/services/services-8.jpg', 'name' => 'Emily Clark', 'position' => 'Staf'],
                     ];
-                    foreach ($albumList as $al) : ?>
-                <div class="single-project" style="margin: -13px auto 25px;">
-                    <img src="{{ asset('frontend/assets/images/services/services-8.jpg') }}" alt="Image">
-
+                    foreach ($albumList as $index => $al) : ?>
+                <div class="single-project" style="margin: -13px auto 25px;" data-aos="fade-up" data-aos-delay="<?php echo (400 + ($index * 100)); ?>">
+                    <img src="{{ asset($al['url']) }}" alt="<?php echo $al['name']; ?>">
+    
                     <div class="project-content">
-                        <a href="{{ asset('frontend/assets/images/services/services-8.jpg') }}"> 
-                            <strong>Pak John Doe</strong>
-                            <p>Kepala Desa</p>
+                        <a href="{{ asset($al['url']) }}"> 
+                            <strong><?php echo $al['name']; ?></strong>
+                            <p><?php echo $al['position']; ?></p>
                         </a>
                     </div>
                 </div>
@@ -235,7 +221,7 @@
                     @if($i < 6)
                         <div class="col-lg-4 col-md-6">
                             <div class="single-blog-box">
-                                <a href="{{ url('/artikel/detail/' . $al['id']) }}">
+                                <a href="{{ url('/article') }}">
                                     <img style="width: -webkit-fill-available;" 
                                          src="{{ asset('frontend/assets/images/blog'  . '/' . $al['gambar']) }}" 
                                          alt="Images">
@@ -244,7 +230,7 @@
                                 <div class="blog-content">
                                     <ul>
                                         <li>
-                                            <a href="{{ url('/artikel?kat=' . $al['kategori']) }}">
+                                            <a href="{{ url('/article') }}">
                                                 <i class="ri-layout-grid-line"></i>
                                                 {{ $al['kategori'] }}
                                             </a>
@@ -255,12 +241,12 @@
                                         </li>
                                     </ul>
                                     <h3>
-                                        <a href="{{ url('/artikel/detail/' . $al['id']) }}">
+                                        <a href="{{ url('/article') }}">
                                             {{ $al['judul'] }}
                                         </a>
                                     </h3>
                                     <p>{{ $al['slug'] }}</p>
-                                    <a href="{{ url('/artikel/detail/' . $al['id']) }}" class="read-more">
+                                    <a href="{{ url('/article') }}" class="read-more">
                                         Baca selengkapnya
                                         <i class="ri-arrow-right-s-line"></i>
                                     </a>
@@ -335,113 +321,4 @@
         </div>
     </section>
     <!-- End Events Area -->
-{{--
-    <!-- Start Counter Are Area -->
-    <section class="counter-area pb-5">
-        <div class="container">
-            <div class="section-title">
-                <h2>Data Kasus Covid-19</h2>
-            </div>
-
-            <div class="counter-bg">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 1;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Orang Dalam Pemantauan (ODP)</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 2;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Pasien dalam Pengawasan (PDP)</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 3;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Orang dalam Resiko (ODR)</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 4;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Orang tanpa Gejala (OTG)</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 5;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Positif Covid-19</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-counter">
-                            <div class="count-title">
-                                <h2>
-                                    <span class="odometer"
-                                        data-count="<?= count(
-            array_filter($pendataan, function ($pd) {
-                return $pd['status_covid'] == 6;
-            }),
-        ) ?>">00</span>
-                                </h2>
-                                <h4>Lainnya</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 @endsection

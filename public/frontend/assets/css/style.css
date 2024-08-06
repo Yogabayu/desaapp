@@ -990,7 +990,7 @@ Others Option For Responsive Area Style
   z-index: 9991;
   position: absolute;
   right: 60px;
-  top: -31px;
+  top: -21px;
 }
 
 .others-option-for-responsive .dot-menu .inner {
@@ -2852,6 +2852,7 @@ Footer Area Style
   position: relative;
   z-index: 1;
   overflow: hidden;
+  padding-top: 1rem;
 }
 
 .footer-area .shape {
@@ -2925,6 +2926,10 @@ Footer Area Style
   padding-right: 20px;
 }
 
+.quick-links li a{
+  color: #ffffff;
+}
+
 .single-footer-widget .social-icon li a:hover {
   color: #00aa55;
 }
@@ -2934,9 +2939,11 @@ Footer Area Style
 }
 
 .single-footer-widget h3 {
-  font-size: 25px;
+  /* font-size: 25px;
+  margin-bottom: 20px;*/
+  color: #ffffff; 
   margin-bottom: 20px;
-  color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .single-footer-widget .address {
@@ -5043,6 +5050,43 @@ Preloader Area Style*/
   top: 50%;
   -webkit-transform: translate(-40px, -50px);
   transform: translate(-40px, -50px);
+}
+
+.logo-animate {
+  width: 100px; /* Sesuaikan sesuai kebutuhan */
+  height: auto;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.desa-name {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #333;
+  animation: fade-in 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(0.95);
+      opacity: 0.7;
+  }
+  50% {
+      transform: scale(1.05);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(0.95);
+      opacity: 0.7;
+  }
+}
+
+@keyframes fade-in {
+  from {
+      opacity: 0.5;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 .preloader .preloader-container {
