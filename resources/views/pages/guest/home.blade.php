@@ -27,7 +27,7 @@
                                 <div class="col-lg-6">
                                     @if ($slider['type'] == 'image')
                                         <div class='slider-img pl-15'>
-                                            <img src="{{ $slider['file'] }}" alt='{{ $slider['title'] }}' class="curousel-image" data-aos="fade-up" data-aos-delay="700">
+                                            <img src="{{ $slider['file'] }}" alt='{{ $slider['title'] }}' class="curousel-image" data-aos="fade-up" data-aos-delay="700" loading="lazy">
                                         </div>
                                     @endif
                                 </div>
@@ -37,7 +37,7 @@
                 </div>
     
                 <div class="slider-shape">
-                    <img src="{{ asset('frontend/assets/images/coretan.png') }}" alt="Slider Shape">
+                    <img src="{{ asset('frontend/assets/images/coretan.png') }}" alt="Slider Shape" loading="lazy">
                 </div>
             </div>
             @endforeach
@@ -77,7 +77,7 @@
                         </h3>
                         <p>Meningkatkan pengelolaan dan pelayanan informasi yang berkualitas, benar dan bertanggung jawab.</p>
                         <div class="services-shape">
-                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
+                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                         </h3>
                         <p>Meningkatkan dan mengembangkan kompetensi dan kualitas SDM dalam bidang pelayanan informasi.</p>
                         <div class="services-shape">
-                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
+                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </h3>
                         <p>Mewujudkan keterbukaan informasi Pemerintah Desa Tugu dengan proses yang cepat, tepat, mudah.</p>
                         <div class="services-shape">
-                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image">
+                            <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -158,16 +158,16 @@
                     <div class="col-lg-6 pl-0">
                         <img style="width: -webkit-fill-available;"
                             src="{{ asset('frontend/assets/images/reog.png') }}"
-                            alt="Images">
+                            alt="Images" loading="lazy">
                     </div>
                 </div>
     
                 <div class="shape discover-shape-1">
-                    <img src="{{ asset('frontend/assets/images/discover-shape-1.png') }}" alt="Image">
+                    <img src="{{ asset('frontend/assets/images/discover-shape-1.png') }}" alt="Image" loading="lazy">
                 </div>
     
                 <div class="shape discover-shape-2">
-                    <img src="{{ asset('frontend/assets/images/discover-shape-2.png') }}" alt="Image">
+                    <img src="{{ asset('frontend/assets/images/discover-shape-2.png') }}" alt="Image" loading="lazy">
                 </div>
             </div>
         </div>
@@ -193,7 +193,7 @@
                     ];
                     foreach ($albumList as $index => $al) : ?>
                 <div class="single-project" style="margin: -13px auto 25px;" data-aos="fade-up" data-aos-delay="<?php echo (400 + ($index * 100)); ?>">
-                    <img src="{{ asset($al['url']) }}" alt="<?php echo $al['name']; ?>">
+                    <img src="{{ asset($al['url']) }}" alt="<?php echo $al['name']; ?>" loading="lazy">
     
                     <div class="project-content">
                         <a href="{{ asset($al['url']) }}"> 
@@ -224,7 +224,7 @@
                                 <a href="{{ url('/article') }}">
                                     <img style="width: -webkit-fill-available;" 
                                          src="{{ asset('frontend/assets/images/blog'  . '/' . $al['gambar']) }}" 
-                                         alt="Images">
+                                         alt="Images" loading="lazy">
                                 </a>
     
                                 <div class="blog-content">
@@ -260,11 +260,11 @@
         </div>
     
         <div class="shape blog-shape-1">
-            <img src="{{ asset('frontend/assets/images/blog/blog-shape-1.png') }}" alt="Image">
+            <img src="{{ asset('frontend/assets/images/blog/blog-shape-1.png') }}" alt="Image" loading="lazy">
         </div>
     
         <div class="shape blog-shape-2">
-            <img src="{{ asset('frontend/assets/images/blog/blog-shape-2.png') }}" alt="Image">
+            <img src="{{ asset('frontend/assets/images/blog/blog-shape-2.png') }}" alt="Image" loading="lazy">
         </div>
     </section>
     <!-- End Blog Area -->

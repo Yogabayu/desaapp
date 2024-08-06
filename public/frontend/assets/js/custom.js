@@ -228,7 +228,7 @@
 
 	// Popup Video JS
 	$('.popup-youtube, .popup-vimeo').magnificPopup({
-		disableOn: 300,
+		disableOn: 200,
 		type: 'iframe',
 		mainClass: 'mfp-fade',
 		removalDelay: 160,

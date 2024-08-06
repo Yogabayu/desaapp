@@ -976,6 +976,8 @@ Navbar Area Style
   display: none;
 }
 
+
+
 /*
 Others Option For Responsive Area Style
 ======================================================*/
@@ -992,6 +994,39 @@ Others Option For Responsive Area Style
   right: 60px;
   top: -21px;
 }
+
+/* Media Queries for Different Screen Sizes */
+
+/* Mobile Devices */
+@media (max-width: 575px) {
+  .others-option-for-responsive .dot-menu {
+    right: 60px; /* Adjust position */
+    top: -45px;  /* Adjust position */
+    padding: 0 5px; /* Adjust padding */
+    height: 25px; /* Adjust height */
+  }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+  .others-option-for-responsive .dot-menu {
+    right: 40px; /* Adjust position */
+    top: 50px;  /* Adjust position */
+    padding: 0 8px; /* Adjust padding */
+    height: 28px; /* Adjust height */
+  }
+}
+
+/* Small Desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .others-option-for-responsive .dot-menu {
+    right: 50px; /* Adjust position */
+    top: -50px;  /* Adjust position */
+    padding: 0 9px; /* Adjust padding */
+    height: 29px; /* Adjust height */
+  }
+}
+
 
 .others-option-for-responsive .dot-menu .inner {
   display: -webkit-box;
