@@ -200,7 +200,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-footer-widget">
                         <a href="{{ url('/') }}" class="logo">
-                            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="Logo Desa"
+                            <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
                                 loading="lazy">
                         </a>
                         <p class="mt-3">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]</p>
