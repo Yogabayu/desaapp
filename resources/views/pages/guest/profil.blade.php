@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.guest.main')
 @section('title')
     Profil Desa Sejahtera
 @endsection

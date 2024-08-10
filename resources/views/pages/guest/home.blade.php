@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.guest.main')
 @section('content')
     <!-- Start Hero Slider Area -->
     <section class="hero-slider-area">
