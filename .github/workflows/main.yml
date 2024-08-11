@@ -8,20 +8,14 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Get the latest code
-      uses: actions/checkout@v2.3.2
-    - name: Install Dependencies
-      run: composer update --ignore-platform-reqs
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
+    - name: Deploy using SSH
+      uses: appleboy/ssh-action@master
       with:
-        php-version: '8.2'
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: ftp.yogabayuap.com
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: public_html/desa.yogabayuap.com/
-    - name: Optimize site
-      run: php artisan optimize:clear
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd public_html/desa.yogabayuap.com/
+          git pull
+          php artisan optimize:clear
