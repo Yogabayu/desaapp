@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\GeneralInfo;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('pages.auth.login');
+        $general = GeneralInfo::first();
+        return view('pages.auth.login', compact('general'));
     }
 
     public function login(Request $request)
@@ -21,6 +23,12 @@ class AuthController extends Controller
                 'text' => 'required',
                 'password' => 'required'
             ]);
+
+            // cek active
+            $user = User::where('email', $request->text)->orWhere('nip', $request->text)->first();
+            if (!$user->isActive) {
+                return back()->withErrors(['text' => 'Akun anda sedang tidak aktif.'])->withInput($request->except('password'));
+            }
 
             $loginField = filter_var($request->text, FILTER_VALIDATE_EMAIL) ? 'email' : 'nip';
 

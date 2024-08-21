@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
         name="viewport">
-    <title>@yield('title') &mdash; DesaKU</title>
+    <title>@yield('title') &mdash; {{ $general->name ?? 'DesaKU' }}</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet"

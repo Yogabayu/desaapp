@@ -96,7 +96,7 @@
                             <a href="{{ url('/') }}">
                                 <img style="height: 60px; margin-left: 20px;"
                                     src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="logo"
-                                    loading="lazy"> 
+                                    loading="lazy">
                             </a>
                         </div>
                     </div>
@@ -199,21 +199,26 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-footer-widget">
-                        <a href="{{ url('/') }}" class="logo" style="max-width=80px">
-                            <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
-                                loading="lazy">
-                        </a>
-                        <p class="mt-3">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]</p>
-                        <ul class="social-icon mt-4">
-                            <li><a href="https://www.facebook.com/pemerintah.desa.tugu" target="_blank"><i
-                                        class="ri-facebook-fill"></i></a></li>
-                            <li><a href="https://www.instagram.com/pemdestugumlarak" target="_blank"><i
-                                        class="ri-instagram-line"></i></a></li>
-                            <li><a href="https://api.whatsapp.com/" target="_blank"><i
-                                        class="ri-whatsapp-fill"></i></a></li>
-                            <li><a href="https://www.youtube.com/" target="_blank"><i
-                                        class="ri-youtube-fill"></i></a></li>
-                        </ul>
+                        <div class="d-flex justify-content-center mb-3">
+                            <a href="{{ url('/') }}" class="logo">
+                                <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
+                                    loading="lazy" style="max-width: 80px !important">
+                            </a>
+                        </div>
+                        <p class="text-center">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]
+                        </p>
+                        <div class="d-flex justify-content-center mb-3">
+                            <ul class="social-icon">
+                                <li><a href="https://www.facebook.com/pemerintah.desa.tugu" target="_blank"><i
+                                            class="ri-facebook-fill"></i></a></li>
+                                <li><a href="https://www.instagram.com/pemdestugumlarak" target="_blank"><i
+                                            class="ri-instagram-line"></i></a></li>
+                                <li><a href="https://api.whatsapp.com/" target="_blank"><i
+                                            class="ri-whatsapp-fill"></i></a></li>
+                                <li><a href="https://www.youtube.com/" target="_blank"><i
+                                            class="ri-youtube-fill"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

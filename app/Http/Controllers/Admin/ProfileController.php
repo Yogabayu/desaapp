@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -15,7 +19,7 @@ class ProfileController extends Controller
         try {
             return view('pages.admin.profile');
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            return back()->with('error', $th->getMessage());
         }
     }
 
@@ -32,7 +36,46 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $userId = auth()->id(); // Mengambil ID pengguna yang sedang login
+
+            $request->validate([
+                'name' => 'required',
+                'email' => [
+                    'required',
+                    Rule::unique('users')->ignore($userId),
+                ],
+                'nip' => [
+                    'required',
+                    Rule::unique('users')->ignore($userId),
+                ],
+            ],[
+                'name.required' => 'Nama harus diisi',
+                'email.required' => 'Email harus diisi',
+                'email.unique' => 'Email sudah terdaftar',
+                'nip.required' => 'NIP harus diisi',
+                'nip.unique' => 'NIP sudah terdaftar',
+            ]);
+
+            $user = User::findOrFail($userId);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->nip = $request->nip;
+
+            if (!empty($request->password)) {
+                $user->password = Hash::make($request->password);
+                $user->save();
+
+                Auth::logout();
+                return redirect('/admin/login')->with('success', 'Anda mengganti password silahkan login kembali');
+            }
+            $user->save();
+
+
+            return back()->with('success', 'Profile updated successfully');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     /**

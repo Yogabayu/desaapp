@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>@yield('title') &mdash; DesaKU</title>
+    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/ponorogo.png') }}">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/library/bootstrap/dist/css/bootstrap.min.css') }}">

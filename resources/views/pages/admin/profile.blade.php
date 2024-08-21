@@ -53,6 +53,30 @@
                 <p class="section-lead">
                     Ubah data profil anda
                 </p>
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                @endif
 
                 <div class="row mt-sm-4">
                     <div class="col-12 col-md-12 col-lg-5">
@@ -72,7 +96,7 @@
                     </div>
                     <div class="col-12 col-md-12 col-lg-7">
                         <div class="card">
-                            <form method="post" class="needs-validation" novalidate="">
+                            <form method="post" class="needs-validation" novalidate="" action="{{ route('admin.profile.store') }}">
                                 @csrf
                                 <div class="card-header">
                                     <h4>Ubah Profile</h4>
@@ -119,33 +143,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="row">
-                                        <div class="form-group col-md-7 col-12">
-                                            <label>Email</label>
-                                            <input type="email"
-                                                class="form-control"
-                                                value="ujang@maman.com"
-                                                required="">
-                                            <div class="invalid-feedback">
-                                                Please fill in the email
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-5 col-12">
-                                            <label>Phone</label>
-                                            <input type="tel"
-                                                class="form-control"
-                                                value="">
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="row">
-                                        <div class="form-group col-12">
-                                            <label>Bio</label>
-                                            <textarea class="form-control summernote-simple">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
-                                        </div>
-                                    </div> --}}
                                 </div>
                                 <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Save Changes</button>
+                                    <button class="btn btn-primary" type="submit">Save Changes</button>
                                 </div>
                             </form>
                         </div>

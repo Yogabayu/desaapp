@@ -18,6 +18,7 @@ class User extends Authenticatable
         'email',
         'nip',
         'password',
+        'isActive',
     ];
 
     protected $hidden = [
@@ -26,6 +27,7 @@ class User extends Authenticatable
 
     protected $casts = [
         'password' => 'hashed',
+        'isActive' => 'boolean',
     ];
 
     public function role(): BelongsTo

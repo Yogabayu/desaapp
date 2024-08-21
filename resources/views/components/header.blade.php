@@ -252,14 +252,14 @@
                 <a href="{{ route('admin.profile') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
-                @if(Auth::user()->role('admin'))
+                {{-- @if(Auth::user()->role('admin'))
                 <a href="#" class="dropdown-item has-icon">
                     <i class="fas fa-tachometer-alt"></i> Admin Dashboard
                 </a>
                 @endif
                 <a href="#" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
-                </a>
+                </a> --}}
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('auth.logout') }}">
                     @csrf

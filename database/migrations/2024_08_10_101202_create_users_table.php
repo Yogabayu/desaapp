@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nip');
             $table->string('password');
+            $table->boolean('isActive');
             $table->timestamps();
         });
     }
