@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->boolean('status')->default(1);
             $table->timestamps();
+
+            $table->foreign('village_id')->references('id')->on('general_infos');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

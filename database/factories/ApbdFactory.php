@@ -1,5 +1,5 @@
 <?php
-// TODO: Implement UmkmFactory
+
 namespace Database\Factories;
 
 use App\Models\GeneralInfo;
@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Umkm>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Apbd>
  */
-class UmkmFactory extends Factory
+class ApbdFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -23,13 +23,10 @@ class UmkmFactory extends Factory
         return [
             'id' => Str::uuid(),
             'village_id' => $village->id,
-            'slug' => $this->faker->slug,
-            'name' => $this->faker->name,
-            'desc' => $this->faker->text,
-            'tlp' => $this->faker->phoneNumber,
-            'fb' => $this->faker->url,
-            'ig' => $this->faker->url,
-            'is_active' => $this->faker->boolean,
+            'description' => $this->faker->sentence,
+            'amount' => $this->faker->numberBetween(1000000, 100000000),
+            'date' => now(),
+            'type' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

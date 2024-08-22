@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('article_comments', function (Blueprint $table) {
+        Schema::create('umkm_images', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('article_id');
-            $table->string('name');
-            $table->string('email');
-            $table->text('comment');
-            $table->boolean('status');
+            $table->uuid('umkm_id');
+            $table->string('image');
             $table->timestamps();
 
-            $table->foreign('article_id')->references('id')->on('articles');
+            $table->foreign('umkm_id')->references('id')->on('umkms');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('article_comments');
+        Schema::dropIfExists('umkm_images');
     }
 };

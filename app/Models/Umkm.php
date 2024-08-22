@@ -18,6 +18,7 @@ class Umkm extends Model
         'tlp',
         'fb',
         'ig',
+        'is_active',
     ];
 
     //route
@@ -29,5 +30,15 @@ class Umkm extends Model
     public function village()
     {
         return $this->belongsTo(GeneralInfo::class, 'village_id', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(UmkmImage::class, 'umkm_id', 'id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(UmkmReview::class, 'umkm_id', 'id');
     }
 }

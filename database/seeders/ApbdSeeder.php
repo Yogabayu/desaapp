@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Umkm;
+use App\Models\Apbd;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UmkmSeeder extends Seeder
+class ApbdSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Umkm::factory(10)->create();
+        Apbd::factory(2)->create();
     }
 }

@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('umkms', function (Blueprint $table) {
+        Schema::create('apbds', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('village_id');
-            $table->string('slug')->unique();
-            $table->string('name');
-            $table->longText('desc');
-            $table->string('tlp')->nullable();
-            $table->string('fb')->nullable();
-            $table->string('ig')->nullable();
-            $table->boolean('is_active');
+            $table->string('description')->nullable();
+            $table->string('amount')->nullable();
+            $table->date('date')->nullable();
+            $table->enum('type', [1,2,3])->default(1);
             $table->timestamps();
 
             $table->foreign('village_id')->references('id')->on('general_infos');
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('umkms');
+        Schema::dropIfExists('apbds');
     }
 };

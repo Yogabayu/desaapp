@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Apbd;
 use App\Models\Article;
 use App\Models\GeneralInfo;
 use App\Models\Permission;
@@ -11,6 +12,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\VillageOfficial;
 use App\Models\TypeGalery;
+use App\Models\Umkm;
 use App\Models\VillageGallery;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -106,6 +108,12 @@ class DatabaseSeeder extends Seeder
         // VillageGallery::factory(10)->create();
 
         //article
-        Article::factory(10)->create();
+        // Article::factory(10)->create();
+
+        //umkm
+        // Umkm::factory(10)->create();
+
+        //apbd
+        Apbd::factory(10)->create();
     }
 }

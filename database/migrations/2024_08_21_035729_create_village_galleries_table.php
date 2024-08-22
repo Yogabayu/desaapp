@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('image');
             $table->boolean('boolean');
             $table->timestamps();
+
+            $table->foreign('village_id')->references('id')->on('general_infos');
+            $table->foreign('type_gallery_id')->references('id')->on('type_galeries');
         });
     }
 
