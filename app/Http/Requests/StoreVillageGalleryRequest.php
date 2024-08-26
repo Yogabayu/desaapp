@@ -22,12 +22,11 @@ class StoreVillageGalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'village_id' => 'required',
             'type_gallery_id' => 'required',
             'name' => 'required',
             'desc' => 'required',
             'image' => 'required',
-            'boolean' => 'required',
+            'is_show' => 'required',
         ];
     }
 

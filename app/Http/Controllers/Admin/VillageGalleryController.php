@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\VillageGallery;
 use App\Http\Requests\StoreVillageGalleryRequest;
 use App\Http\Requests\UpdateVillageGalleryRequest;
+use App\Models\GeneralInfo;
+use App\Models\TypeGalery;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class VillageGalleryController extends Controller
 {
@@ -16,7 +20,6 @@ class VillageGalleryController extends Controller
     {
         try {
             $data = VillageGallery::all();
-
             return view('pages.admin.gallery.index', compact('data'));
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
@@ -28,7 +31,12 @@ class VillageGalleryController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            $types = TypeGalery::all();
+            return view('pages.admin.gallery.create', compact('types'));
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -37,22 +45,28 @@ class VillageGalleryController extends Controller
     public function store(StoreVillageGalleryRequest $request)
     {
         try {
+            DB::beginTransaction();
+            $village = GeneralInfo::first();
+
             $villageGallery = new VillageGallery();
-            $villageGallery->village_id = $request->village_id;
+            $villageGallery->village_id = $village->id;
             $villageGallery->type_gallery_id = $request->type_gallery_id;
             $villageGallery->name = $request->name;
             $villageGallery->desc = $request->desc;
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $image->storeAs('gallery', $image->hashName(),'public');
+                $image->storeAs('gallery', $image->hashName(), 'public');
                 $villageGallery->image = $image->hashName();
             }
 
-            $villageGallery->boolean = $request->boolean;
+            $villageGallery->is_show = $request->is_show;
             $villageGallery->save();
-            return back()->with('success', 'Village Gallery created successfully');
+
+            DB::commit();
+            return redirect()->route('galery.index')->with('success', 'Village Gallery created successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             return back()->with('error', $th->getMessage());
         }
     }
@@ -89,7 +103,7 @@ class VillageGalleryController extends Controller
             $villageGallery->desc = $request->desc;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $image->storeAs('gallery', $image->hashName(),'public');
+                $image->storeAs('gallery', $image->hashName(), 'public');
                 $villageGallery->image = $image->hashName();
             }
             $villageGallery->boolean = $request->boolean;
@@ -103,13 +117,44 @@ class VillageGalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(VillageGallery $villageGallery)
+    public function destroy($id)
     {
         try {
-            $villageGallery->delete();
-            return back()->with('success', 'Village Gallery deleted successfully');
+            $gallery = VillageGallery::where('id', $id)->firstOrFail();
+
+            if ($gallery->image) {
+                $image_path = public_path('storage/gallery/' . $gallery->image);
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+            $gallery->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Gallery deleted successfully'
+            ]);
         } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function toggleShowGallery(Request $request)
+    {
+        try {
+            $gallery = VillageGallery::find($request->gallery_id); // Access 'gallery_id' 
+            if ($gallery) {
+                $gallery->is_show = !$gallery->is_show;
+                $gallery->save();
+                return response()->json(['status' => true]);
+            } else {
+                return response()->json(['status' => false, 'error' => 'Gallery not found']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => false, 'error' => $th->getMessage()]);
         }
     }
 }

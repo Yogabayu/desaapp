@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GeneralInfoController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\VillageGalleryController;
+use App\Http\Controllers\Admin\VillageOfficialController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Guest\MainController;
 use Illuminate\Support\Facades\Route;
@@ -17,27 +19,34 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware('guest')->group(function () {
-    Route::get('/', [MainController::class, 'index'])->name('guest.home');
-    Route::get('profile', [MainController::class, 'profile']);
-    Route::get('galeri', [MainController::class, 'galeri']);
-    Route::get('article', [MainController::class, 'article']);
-});
+// Route::middleware('guest')->group(function () {
+Route::get('/', [MainController::class, 'index'])->name('guest.home');
+Route::get('profile', [MainController::class, 'profile']);
+Route::get('galeri', [MainController::class, 'galeri']);
+Route::get('article', [MainController::class, 'article']);
+// });
 
 Route::prefix('admin')->group(function () {
-    Route::get('login',[AuthController::class, 'index']);
-    Route::post('login',[AuthController::class, 'login'])->name('auth.login');
-    Route::post('logout',[AuthController::class, 'logout'])->name('auth.logout'); 
+    Route::get('login', [AuthController::class, 'index'])->name('admin.login');
+    Route::post('login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     Route::middleware('auth')->group(function () {
-        Route::get('dashboard',[DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
         //profile
-        Route::get('profile',[ProfileController::class, 'index'])->name('admin.profile');
-        Route::post('profile',[ProfileController::class, 'store'])->name('admin.profile.store');
+        Route::get('profile', [ProfileController::class, 'index'])->name('admin.profile');
+        Route::post('profile', [ProfileController::class, 'store'])->name('admin.profile.store');
 
         //generalInfo
         Route::resource('general-info', GeneralInfoController::class);
+
+        //officials
+        Route::resource('officials', VillageOfficialController::class);
+
+        //galery
+        Route::resource('galery', VillageGalleryController::class);
+        Route::post('/admin/galery/toggle-show', [VillageGalleryController::class, 'toggleShowGallery'])->name('galery.toggle-show');
     });
 });
 

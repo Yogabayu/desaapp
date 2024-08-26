@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('desc');
             $table->string('image');
-            $table->boolean('boolean');
+            $table->boolean('is_show');
             $table->timestamps();
 
             $table->foreign('village_id')->references('id')->on('general_infos');

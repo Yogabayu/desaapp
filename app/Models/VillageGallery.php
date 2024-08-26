@@ -16,7 +16,7 @@ class VillageGallery extends Model
         'name',
         'desc',
         'image',
-        'boolean',
+        'is_show',
     ];
 
     public function village()

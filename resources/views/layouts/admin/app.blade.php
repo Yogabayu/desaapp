@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>@yield('title') &mdash; DesaKU</title>
+    <title>@yield('title') &mdash; {{ $general->name ?? 'DesaKU' }}</title>
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/ponorogo.png') }}">
 
     <!-- General CSS Files -->
@@ -74,13 +74,15 @@
     <script src="{{ asset('admin/js/custom.js') }}"></script>
 
     <!-- Toastr JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         @if (session('success'))
-            toastr.success("{!! session()->get('success')!!}");
+            toastr.success("{!! session()->get('success') !!}");
         @endif
 
         @if (session('error'))

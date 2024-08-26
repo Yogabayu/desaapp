@@ -17,6 +17,14 @@
                 <a class="nav-link"
                    href="{{ route('general-info.index') }}"><i class="fas fa-home"></i> <span>Detail Desa</span></a>
             </li>
+            <li class="{{ Route::is('officials.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('officials.index') }}"><i class="fas fa-user"></i> <span>Pegawai Desa</span></a>
+            </li>
+            <li class="{{ Route::is('galery.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('galery.index') }}"><i class="fas fa-image"></i> <span>Galeri Desa</span></a>
+            </li>
             {{-- <li class="menu-header">Starter</li>
             <li class="nav-item dropdown {{ $type_menu === 'layout' ? 'active' : '' }}">
                 <a href="#"
