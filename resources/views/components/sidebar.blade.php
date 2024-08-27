@@ -25,6 +25,14 @@
                 <a class="nav-link"
                    href="{{ route('galery.index') }}"><i class="fas fa-image"></i> <span>Galeri Desa</span></a>
             </li>
+            <li class="{{ Route::is('articles.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('articles.index') }}"><i class="fas fa-newspaper"></i> <span>Artikel</span></a>
+            </li>
+            <li class="{{ Route::is('umkm.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('umkm.index') }}"><i class="fas fa-shop"></i> <span>UMKM</span></a>
+            </li>
             {{-- <li class="menu-header">Starter</li>
             <li class="nav-item dropdown {{ $type_menu === 'layout' ? 'active' : '' }}">
                 <a href="#"

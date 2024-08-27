@@ -4,22 +4,39 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Umkm;
-use App\Http\Requests\StoreUmkmRequest;
-use App\Http\Requests\UpdateUmkmRequest;
+use Illuminate\Support\Str;
+use App\Models\GeneralInfo;
 use App\Models\UmkmImage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class UmkmController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $data = Umkm::all();
-            dd($data);
+            if ($request->ajax()) {
+                $umkm = Umkm::query()->orderBy('created_at', 'desc');
+
+                return DataTables::of($umkm)
+                    ->addIndexColumn()
+                    ->editColumn('is_active', function ($umkm) {
+                        $class = $umkm->is_active == 1 ? 'badge-success' : 'badge-warning';
+                        return '<span class="badge ' . $class . '">' . ucfirst($umkm->is_active == 1 ? 'Ditampilkan' : 'Disembunyikan') . '</span>';
+                    })
+                    ->addColumn('action', function ($umkm) {
+                        return view('pages.admin.umkm.components.button', compact('umkm'))->render();
+                    })
+                    ->rawColumns(['is_active', 'action'])
+                    ->make(true);
+            }
+
+            return view('pages.admin.umkm.index');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -30,18 +47,54 @@ class UmkmController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            return view('pages.admin.umkm.store');
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUmkmRequest $request)
+    public function store(Request $request)
     {
-        try {            
+        try {
+            $request->validate([
+                'name' => 'required',
+                'desc' => 'required',
+                'tlp' => 'required',
+                'fb' => 'nullable',
+                'ig' => 'nullable',
+                'is_active' => 'required',
+                'images' => 'array|required_if:images.*,!', // Validasi untuk array gambar
+                'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi untuk setiap gambar
+            ], [
+                'required' => ':attribute harus diisi',
+                'images.required' => 'Setidaknya satu gambar harus diunggah',
+                'images.*.mimes' => 'Format gambar yang diizinkan: jpeg, png, jpg, gif, svg',
+                'images.*.max' => 'Ukuran gambar maksimal 2MB',
+            ]);
+
             DB::beginTransaction();
+            $village = GeneralInfo::first();
+
             $umkm = new Umkm();
-            $umkm->fill($request->all());
+            $umkm->village_id = $village->id;
+            $umkm->name = $request->name;
+            $umkm->slug = Str::slug($request->name);
+            $umkm->desc = $request->desc;
+            $umkm->tlp = $request->tlp;
+            
+            if ($request->fb) {
+                $umkm->fb = $request->fb;
+            }
+
+            if ($request->ig) {
+                $umkm->ig = $request->ig;
+            }
+
+            $umkm->is_active = $request->is_active;
             $umkm->save();
 
             // Proses upload gambar            
@@ -66,10 +119,12 @@ class UmkmController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Umkm $umkm)
+    public function show($slug)
     {
         try {
-            dd($umkm);
+            $umkm = Umkm::where('slug', $slug)->with('village','images','reviews')->first();
+
+            return view('pages.admin.umkm.show', compact('umkm'));
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -86,7 +141,7 @@ class UmkmController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUmkmRequest $request, Umkm $umkm)
+    public function update(Request $request, Umkm $umkm)
     {
         try {
             DB::beginTransaction();
@@ -131,23 +186,23 @@ class UmkmController extends Controller
     {
         try {
             DB::beginTransaction();
-    
+
             // Hapus gambar-gambar terkait dari storage
             foreach ($umkm->images as $image) {
                 Storage::disk('public')->delete('umkm_images/' . $image->image);
             }
-    
+
             // Hapus record gambar dari database
             $umkm->images()->delete();
-    
+
             // Hapus UMKM
             $umkm->delete();
-    
+
             DB::commit();
-            return back()->with('success', 'UMKM deleted successfully');
+            return response()->json(['success' => true, 'message' => 'UMKM berhasil di hapus'], 200);
         } catch (\Throwable $th) {
             DB::rollBack();
-            return back()->with('error', 'Error deleting UMKM: ' . $th->getMessage());
+            return response()->json(['success' => false, 'message' => $th->getMessage()], 500);
         }
     }
 }

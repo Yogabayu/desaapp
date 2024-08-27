@@ -22,13 +22,10 @@ class StoreArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'village_id' => 'required',
-            'user_id' => 'required',
             'title' => 'required',
-            'slug' => 'required',
             'content' => 'required',
             'status' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 
@@ -36,6 +33,8 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'required' => ':attribute harus diisi',
+            'mimes' => 'File harus berupa jpg,jpeg,png',
+            'max' => 'File terlalu besar'
         ];
     }
 }

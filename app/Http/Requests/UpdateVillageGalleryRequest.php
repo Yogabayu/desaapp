@@ -25,7 +25,7 @@ class UpdateVillageGalleryRequest extends FormRequest
             'type_gallery_id' => 'required',
             'name' => 'required',
             'desc' => 'required',
-            'image' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png|max:2048',
             'boolean' => 'required',
         ];
     }
@@ -34,6 +34,8 @@ class UpdateVillageGalleryRequest extends FormRequest
     {
         return [
             'required' => ':attribute harus diisi',
+            'mimes' => 'File harus berupa jpg,jpeg,png',
+            'max' => 'File terlalu besar'
         ];
     }
 }

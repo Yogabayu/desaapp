@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TypeGalery;
 use App\Http\Requests\StoreTypeGaleryRequest;
 use App\Http\Requests\UpdateTypeGaleryRequest;
+use Illuminate\Support\Facades\DB;
 
 class TypeGaleryController extends Controller
 {
@@ -36,12 +37,21 @@ class TypeGaleryController extends Controller
     public function store(StoreTypeGaleryRequest $request)
     {
         try {
+            DB::beginTransaction();
             $typeGalery = new TypeGalery();
             $typeGalery->name = $request->name;
             $typeGalery->save();
-            return back()->with('success', 'Type Galery created successfully');
+            DB::commit();
+            return response()->json([
+                'success' => true,
+                'type' => $typeGalery
+            ]);
         } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+            DB::rollBack();
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage()
+            ]);
         }
     }
 
@@ -82,9 +92,9 @@ class TypeGaleryController extends Controller
     {
         try {
             $typeGalery->delete();
-            return back()->with('success', 'Type Galery deleted successfully');
+            return response()->json(['success' => true]);
         } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+            return response()->json(['success' => false]);
         }
     }
 }

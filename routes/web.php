@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleCommentController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GeneralInfoController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\TypeGaleryController;
+use App\Http\Controllers\Admin\UmkmController;
 use App\Http\Controllers\Admin\VillageGalleryController;
 use App\Http\Controllers\Admin\VillageOfficialController;
 use App\Http\Controllers\Auth\AuthController;
@@ -47,6 +51,18 @@ Route::prefix('admin')->group(function () {
         //galery
         Route::resource('galery', VillageGalleryController::class);
         Route::post('/admin/galery/toggle-show', [VillageGalleryController::class, 'toggleShowGallery'])->name('galery.toggle-show');
+
+        //type-galery
+        Route::resource('type-galery', TypeGaleryController::class);
+
+        //articles
+        Route::resource('articles', ArticleController::class);
+        ///comments
+        Route::resource('comments', ArticleCommentController::class);
+        Route::post('comments/toggle-show',[ArticleCommentController::class, 'toggleShowComment'])->name('comments.toggle-show');
+        
+        //umkm
+        Route::resource('umkm', UmkmController::class);
     });
 });
 

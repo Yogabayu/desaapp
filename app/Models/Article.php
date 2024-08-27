@@ -22,6 +22,10 @@ class Article extends Model
         'status'
     ];
 
+    protected $casts = [
+        'publish_date' => 'datetime',
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';

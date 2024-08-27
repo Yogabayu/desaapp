@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ArticleComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleCommentController extends Controller
 {
@@ -33,7 +34,18 @@ class ArticleCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $articleComment = new ArticleComment();
+            $articleComment->article_id = $request->article_id;
+            $articleComment->name = Auth::user()->name ?? $request->name;
+            $articleComment->email = Auth::user()->email ?? $request->email;
+            $articleComment->comment = $request->contentComment;
+            $articleComment->status = $request->status ? 1 : 0;
+            $articleComment->save();
+            return back()->with('success', 'Article Comment created successfully');
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -69,13 +81,30 @@ class ArticleCommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ArticleComment $articleComment)
+    public function destroy($id)
     {
         try {
+            $articleComment = ArticleComment::find($id);
             $articleComment->delete();
-            return back()->with('success', 'Article Comment deleted successfully');
+            return response()->json(['success' => true, 'message' => 'Comment deleted successfully'], 200);
         } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+            return response()->json(['success' => false, 'message' => $th->getMessage()]);
+        }
+    }
+
+    public function toggleShowComment(Request $request)
+    {
+        try {
+            $comment = ArticleComment::find($request->comment_id); 
+            if ($comment) {
+                $comment->status = !$comment->status;
+                $comment->save();
+                return response()->json(['status' => true]);
+            } else {
+                return response()->json(['status' => false, 'error' => 'Comment not found']);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => false, 'error' => $th->getMessage()]);
         }
     }
 }

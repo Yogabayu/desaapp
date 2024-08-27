@@ -19,7 +19,7 @@ class VillageGalleryController extends Controller
     public function index()
     {
         try {
-            $data = VillageGallery::all();
+            $data = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->get();
             return view('pages.admin.gallery.index', compact('data'));
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
