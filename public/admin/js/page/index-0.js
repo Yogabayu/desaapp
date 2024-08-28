@@ -2,43 +2,57 @@
 
 var statistics_chart = document.getElementById("myChart").getContext('2d');
 
+// Function to format number to IDR
+function formatToIDR(number) {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number);
+}
+
 var myChart = new Chart(statistics_chart, {
-  type: 'line',
-  data: {
-    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    datasets: [{
-      label: 'Statistics',
-      data: [640, 387, 530, 302, 430, 270, 488],
-      borderWidth: 5,
-      borderColor: '#6777ef',
-      backgroundColor: 'transparent',
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#6777ef',
-      pointRadius: 4
-    }]
-  },
-  options: {
-    legend: {
-      display: false
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: formattedDatasets
     },
-    scales: {
-      yAxes: [{
-        gridLines: {
-          display: false,
-          drawBorder: false,
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return formatToIDR(value);
+                    }
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Amount (IDR)'
+                }
+            }
         },
-        ticks: {
-          stepSize: 150
+        plugins: {
+            title: {
+                display: true,
+                text: 'APBD Distribution by Type, Month, and Year'
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += formatToIDR(context.parsed.y);
+                        }
+                        return label;
+                    }
+                }
+            }
         }
-      }],
-      xAxes: [{
-        gridLines: {
-          color: '#fbfbfb',
-          lineWidth: 2
-        }
-      }]
-    },
-  }
+    }
 });
 
 $('#visitorMap').vectorMap(

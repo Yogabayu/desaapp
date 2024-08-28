@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ApbdController;
 use App\Http\Controllers\Admin\ArticleCommentController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\Admin\GeneralInfoController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TypeGaleryController;
 use App\Http\Controllers\Admin\UmkmController;
+use App\Http\Controllers\Admin\UmkmReviewController;
 use App\Http\Controllers\Admin\VillageGalleryController;
 use App\Http\Controllers\Admin\VillageOfficialController;
 use App\Http\Controllers\Auth\AuthController;
@@ -63,6 +65,13 @@ Route::prefix('admin')->group(function () {
         
         //umkm
         Route::resource('umkm', UmkmController::class);
+        Route::post('umkmreview/toggle-show',[UmkmController::class, 'toggleShowUmkmReview'])->name('umkmreview.toggle-show');
+        Route::get('/umkmreview/load-more', [UmkmController::class, 'loadMore'])->name('umkmreview.load-more');
+        ///umkmreview
+        Route::resource('umkmreview', UmkmReviewController::class);
+
+        //apbd
+        Route::resource('apbd', ApbdController::class);
     });
 });
 

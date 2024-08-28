@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ url('/admin/dashboard') }}">{{ $generalInfo->name ?? 'DesaKU' }}</a>
+            <a href="{{ url('/admin/dashboard') }}">{{ $village->name ?? 'DesaKU' }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ url('/admin/dashboard') }}">{{ Str::limit($generalInfo->name ?? 'DesaKU', 5) }}</a>
+            <a href="{{ url('/admin/dashboard') }}">{{ Str::limit($village->name ?? 'DesaKU', 5) }}</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -32,6 +32,10 @@
             <li class="{{ Route::is('umkm.*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="{{ route('umkm.index') }}"><i class="fas fa-shop"></i> <span>UMKM</span></a>
+            </li>
+            <li class="{{ Route::is('apbd.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('apbd.index') }}"><i class="fas fa-dollar-sign"></i> <span>APBD Desa</span></a>
             </li>
             {{-- <li class="menu-header">Starter</li>
             <li class="nav-item dropdown {{ $type_menu === 'layout' ? 'active' : '' }}">

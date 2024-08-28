@@ -85,7 +85,7 @@ class UmkmController extends Controller
             $umkm->slug = Str::slug($request->name);
             $umkm->desc = $request->desc;
             $umkm->tlp = $request->tlp;
-            
+
             if ($request->fb) {
                 $umkm->fb = $request->fb;
             }
@@ -122,12 +122,26 @@ class UmkmController extends Controller
     public function show($slug)
     {
         try {
-            $umkm = Umkm::where('slug', $slug)->with('village','images','reviews')->first();
+            $umkm = Umkm::where('slug', $slug)->with('village', 'images')->first();
+            $reviews = $umkm->reviews()->paginate(10);
 
-            return view('pages.admin.umkm.show', compact('umkm'));
+            return view('pages.admin.umkm.show', compact('umkm', 'reviews'));
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
+    }
+
+    public function loadMore(Request $request)
+    {
+        $umkm = Umkm::findOrFail($request->umkm_id);
+        $reviews = $umkm->reviews()->paginate(10); // Adjust the number as needed
+
+        $view = view('pages.admin.umkm.components.review', compact('reviews'))->render();
+
+        return response()->json([
+            'html' => $view,
+            'last_page' => $reviews->lastPage()
+        ]);
     }
 
     /**
@@ -203,6 +217,23 @@ class UmkmController extends Controller
         } catch (\Throwable $th) {
             DB::rollBack();
             return response()->json(['success' => false, 'message' => $th->getMessage()], 500);
+        }
+    }
+
+    public function toggleShowUmkmReview(Request $request)
+    {
+        try {
+            $umkm = Umkm::where('slug', $request->slug)->first();
+            // return response()->json(['status' => false, 'message' => $umkm], 404);
+            if ($umkm) {
+                $umkm->is_active = !$umkm->is_active;
+                $umkm->save();
+                return response()->json(['status' => true, 'message' => 'Status updated successfully']);
+            } else {
+                return response()->json(['status' => false, 'message' => 'not found'], 404);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => false, 'message' => $th->getMessage()], 500);
         }
     }
 }

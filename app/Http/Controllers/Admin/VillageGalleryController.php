@@ -149,12 +149,12 @@ class VillageGalleryController extends Controller
             if ($gallery) {
                 $gallery->is_show = !$gallery->is_show;
                 $gallery->save();
-                return response()->json(['status' => true]);
+                return response()->json(['status' => true, 'message' => 'Gallery toggled successfully']);
             } else {
-                return response()->json(['status' => false, 'error' => 'Gallery not found']);
+                return response()->json(['status' => false, 'message' => 'Gallery not found'], 404);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => false, 'error' => $th->getMessage()]);
+            return response()->json(['status' => false, 'message' => $th->getMessage()], 500);
         }
     }
 }

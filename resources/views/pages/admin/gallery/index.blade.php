@@ -140,7 +140,6 @@
         }
 
         function toggleShowGallery(galleryId) {
-            // Send an AJAX request to update the is_show status
             $.ajax({
                 url: "{{ route('galery.toggle-show') }}",
                 method: "POST",
@@ -150,14 +149,14 @@
                 },
                 success: function(response) {
                     if (response.status) {
+                        toastr.success(response.message);
                         location.reload();
                     } else {
-                        alert('Error updating gallery status.');
+                        toastr.error('Error updating status.');
                     }
                 },
                 error: function(error) {
-                    console.error(error);
-                    alert('An error occurred. Please try again later.');
+                    toastr.error('An error occurred. Please try again later.');
                 }
             });
         }

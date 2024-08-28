@@ -36,6 +36,7 @@ class UmkmReviewController extends Controller
     public function store(Request $request)
     {
         try {
+            // dd($request->all());
             DB::beginTransaction();
             $request->validate([
                 'umkm_id' => 'required',
@@ -114,10 +115,11 @@ class UmkmReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UmkmReview $umkmReview)
+    public function destroy($id)
     {
         try {
             DB::beginTransaction();
+            $umkmReview = UmkmReview::find($id);
             $umkmReview->delete();
             DB::commit();
             return back()->with('success', 'Umkm review deleted successfully');
