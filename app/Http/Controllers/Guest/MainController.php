@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\GeneralInfo;
+use App\Models\Umkm;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -11,30 +13,31 @@ class MainController extends Controller
     {
         $sliders = [
             [
-                'title' => 'Welcome to Our Village',
-                'link' => '/about',
+                'title' => 'Desa dengan sejuta keindahan',
+                'link' => '/profile',
                 'type' => 'image',
                 'file' => 'https://picsum.photos/seed/picsum/630/1024'
             ],
             [
-                'title' => 'Our Community',
-                'link' => '/community',
+                'title' => 'Desa dengan sejuta keragaman',
+                'link' => '/profile',
                 'type' => 'image',
                 'file' => 'https://picsum.photos/seed/picsum/630/1024'
             ],
         ];
+        $village = GeneralInfo::first();
         $data = [
-            'penduduk' => 5000,
-            'dusun' => 10,
-            'rt' => 15,
-            'umkm' => 50,
-            'slider' => [
-                ['judul' => 'Selamat Datang di Desa Cepoko']
-            ],
+            'penduduk' => $village->total_population,
+            'dusun' => $village->total_dusun,
+            'rt' => $village->total_rt,
+            'umkm' => Umkm::count(),
+            // 'slider' => [
+            //     ['judul' => 'Selamat Datang ']
+            // ],
             'budayaList' => [
                 [
-                    'judul' => 'Tari Tradisional Cepoko',
-                    'isi' => '<p>Tari Tradisional Cepoko adalah warisan budaya yang telah dilestarikan selama berabad-abad. Tarian ini menggambarkan kehidupan masyarakat desa dan keindahan alam sekitar.</p>',
+                    'judul' => 'Tari Tradisional Ponorogo',
+                    'isi' => '<p>Tari Tradisional Ponorogo adalah Reog Ponorogo yang merupakan warisan budaya yang telah dilestarikan selama berabad-abad. Tarian ini menggambarkan kehidupan masyarakat desa dan keindahan alam sekitar.</p>',
                     'data' => 'tari-cepoko.jpg'
                 ]
             ],
@@ -70,17 +73,20 @@ class MainController extends Controller
             ],
             // Add more dummy articles as needed
         ];
-    
-        return view('pages.guest.home', compact('sliders', 'data','artikelList'));
+
+        return view('pages.guest.home', compact('sliders', 'data', 'artikelList'));
     }
 
-    public function profile(){
+    public function profile()
+    {
         return view('pages.guest.profil');
     }
-    public function galeri(){
+    public function galeri()
+    {
         return view('pages.guest.galeri');
     }
-    public function article(){
+    public function article()
+    {
         return view('pages.guest.article');
     }
 }

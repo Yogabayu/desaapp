@@ -42,44 +42,53 @@
 
     <style>
         .logo img {
-            max-width: 150px;
+            max-width: 9.375rem;
             height: auto;
         }
 
         .social-icon {
             display: flex;
-            gap: 10px;
+            gap: .625rem;
         }
 
         .address li,
         .quick-links li {
-            margin-bottom: 10px;
+            margin-bottom: .625rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 48rem) {
             .col-md-6 {
-                margin-bottom: 30px;
+                margin-bottom: 1.875rem;
             }
         }
     </style>
     @yield('css')
     <!-- Favicon -->
-    {{-- @if (empty($logo['logo']))
-        <link rel="icon" type="image/png" href="{{ asset('public/admin/images/identitas/sumedang.png') }}">
-    @else --}}
-    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/favicon.png') }}">
-    {{-- @endif --}}
+    @php
+        $logoPath = 'public/general_info/' . ($village->logo ?? '');
+        $faviconUrl = Storage::exists($logoPath)
+            ? asset('storage/general_info/' . $village->logo)
+            : asset('frontend/assets/images/favicon.png');
+    @endphp
+
+    <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <!-- Title -->
-    <title>@yield('title') Desa XXX </title>
+    <title>@yield('title') {{ $village->name ?? 'DesaKU' }} </title>
 </head>
 
 <body>
     <!-- Start Preloader Area -->
     <div class="preloader">
-        <div class="lds-ripple">
-            <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Desa Logo" class="logo-animate"
+        <div class="lds-ripple" >
+            <img src="{{ $faviconUrl }}" alt="{{ $village->name ?? 'DesaKU' }}" class="logo-animate"
                 loading="lazy">
-            <strong class="desa-name">Desa xxx</strong>
+                {{-- <strong class="desa-name">
+                    @php
+                        $villageName = $village->name ?? 'DesaKU';
+                        $cleanedName = str_replace(['Desa ', 'desa ', 'DESA '], '', $villageName);
+                    @endphp
+                    {{ $cleanedName }}
+                </strong> --}}
         </div>
     </div>
     <!-- End Preloader Area -->
@@ -94,8 +103,8 @@
                     <div class="mobile-responsive-menu">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img style="height: 60px; margin-left: 20px;"
-                                    src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="logo"
+                                <img style="height: 3.75rem; margin-left: 1.25rem;"
+                                    src="{{ $faviconUrl }}" alt="logo"
                                     loading="lazy">
                             </a>
                         </div>
@@ -147,9 +156,9 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img style="height: 60px; margin-left: 20px;"
-                                src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="logo" loading="lazy">
-                            <strong>Desa xxx</strong>
+                            <img style="height: 3.75rem; margin-left: 1.25rem;"
+                                src="{{ $faviconUrl }}" alt="logo" loading="lazy">
+                            <strong>{{ $village->name ?? 'DesaKU' }}</strong>
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -202,7 +211,7 @@
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{ url('/') }}" class="logo">
                                 <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
-                                    loading="lazy" style="max-width: 80px !important">
+                                    loading="lazy" style="max-width: 5rem !important">
                             </a>
                         </div>
                         <p class="text-center">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]

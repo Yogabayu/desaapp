@@ -12,7 +12,7 @@
                                 <div class="col-lg-6">
                                     <div class="hero-slider-content pr-15">
                                         <span class="top-title" data-aos="fade-up" data-aos-delay="100">
-                                            Selamat Datang di Portal Web Desa Cepoko
+                                            Selamat Datang di Portal Web {{ $village->name }}
                                         </span>
                                         <h2 data-aos="fade-left" data-aos-delay="300">{{ $slider['title'] }}</h2>
                                         <br>
@@ -102,10 +102,10 @@
                         <span class="flaticon-government"></span>
                         <h3>
                             <a href="services-details.html">
-                                Pemantauan Covid-19
+                                Pemberdayaan UMKM
                             </a>
                         </h3>
-                        <p>Mewujudkan keterbukaan informasi Pemerintah Desa Tugu dengan proses yang cepat, tepat, mudah.</p>
+                        <p>Meningkatkan dan mengembangkan UMKM dalam berbagai bidang.</p>
                         <div class="services-shape">
                             <img src="{{ asset('frontend/assets/images/services-shape.png') }}" alt="Image" loading="lazy">
                         </div>
@@ -144,7 +144,7 @@
     
                 <div class="section-title green-title">
                     <h2>Ayo kunjungi desa kami</h2>
-                    <p>{{ $data['slider'][0]['judul'] }}</p>
+                    {{-- <p>{{ $data['slider'][0]['judul'] }}</p> --}}
                 </div>
     
                 <div class="row">
