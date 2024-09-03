@@ -7,6 +7,7 @@ use App\Models\Apbd;
 use App\Models\Article;
 use App\Models\GeneralInfo;
 use App\Models\Umkm;
+use App\Models\VillageGallery;
 use App\Models\VillageOfficial;
 use Illuminate\Http\Request;
 
@@ -79,7 +80,9 @@ class MainController extends Controller
     public function profile()
     {
         $village = GeneralInfo::first();
-        return view('pages.guest.profil', compact('village'));
+        $villageOfficials = VillageOfficial::orderBy('created_at', 'desc')->get();
+        $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->get();
+        return view('pages.guest.profil', compact('village', 'villageOfficials','galleries'));
     }
     public function galeri()
     {

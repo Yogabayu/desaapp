@@ -83,7 +83,7 @@ class GeneralInfoController extends Controller
                 'ytb' => 'nullable|string|max:255|url',
                 'web' => 'nullable|url',
                 'long_desc' => 'required|string',
-                'short_desc' => 'required|string|max:255',
+                'short_desc' => 'required|string|max:500',
                 'fasilities' => 'required|string',
                 'general_work' => 'required|string',
                 'visi' => 'required|string',

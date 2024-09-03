@@ -216,7 +216,6 @@
                         <div id="overlay_image"
                             style="
                                 position: absolute;
-                                bottom: 10px;
                                 right: 10px;
                                 width: 7rem">
                             <img src="{{ Storage::url('official/' . $al['image']) }}" alt="<?php echo $al['name']; ?>"
