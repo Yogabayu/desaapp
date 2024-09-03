@@ -40,6 +40,8 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script> --}}
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         .logo img {
             max-width: 9.375rem;
@@ -216,13 +218,13 @@
                         </p>
                         <div class="d-flex justify-content-center mb-3">
                             <ul class="social-icon">
-                                <li><a href="https://www.facebook.com/pemerintah.desa.tugu" target="_blank"><i
+                                <li><a href="{{ $village->fb }}" target="_blank"><i
                                             class="ri-facebook-fill"></i></a></li>
-                                <li><a href="https://www.instagram.com/pemdestugumlarak" target="_blank"><i
+                                <li><a href="{{ $village->ig }}" target="_blank"><i
                                             class="ri-instagram-line"></i></a></li>
-                                <li><a href="https://api.whatsapp.com/" target="_blank"><i
+                                <li><a href="{{ $village->wa }}" target="_blank"><i
                                             class="ri-whatsapp-fill"></i></a></li>
-                                <li><a href="https://www.youtube.com/" target="_blank"><i
+                                <li><a href="{{ $village->ytb }}" target="_blank"><i
                                             class="ri-youtube-fill"></i></a></li>
                             </ul>
                         </div>
@@ -286,7 +288,7 @@
     </div>
     <!-- End Go Top Area -->
 
-    @yield('scripts')
+    @stack('scripts')
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({

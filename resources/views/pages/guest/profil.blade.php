@@ -83,14 +83,15 @@
             <div class="col-md-6 mb-4">
                 <div class="card h-100 shadow" data-aos="fade-right">
                     <div class="section-header">
-                        <h2>Data Desa</h2>
+                        <h2>Sekilas Desa</h2>
                     </div>
                     <img src="{{ asset('frontend/assets/images/sawah.png') }}" alt="Foto Udara Desa" class="card-img-top"
                         style="height: 250px; object-fit: cover;">
                     <div class="card-body">
-                        <p class="card-text">Desa Sejahtera didirikan pada tahun 1850 oleh sekelompok petani yang mencari
+                        {{-- <p class="card-text">Desa Sejahtera didirikan pada tahun 1850 oleh sekelompok petani yang mencari
                             tanah subur untuk bercocok tanam. Sejak saat itu, desa ini telah berkembang menjadi komunitas
-                            yang makmur dan harmonis.</p>
+                            yang makmur dan harmonis.</p> --}}
+                        {!! $village->short_desc !!}
                     </div>
                 </div>
             </div>
@@ -139,6 +140,19 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-5 shadow" data-aos="fade-up">
+            <div class="card-body">
+                <div class="section-header">
+                    <h2>Seputar Desa</h2>
+                </div>
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        {!! $village->long_desc !!}
                     </div>
                 </div>
             </div>

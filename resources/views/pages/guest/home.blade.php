@@ -34,7 +34,8 @@
                                             <span class="top-title" data-aos="fade-up" data-aos-delay="100">
                                                 Selamat Datang di Portal Web {{ $village->name }}
                                             </span>
-                                            <h2 data-aos="fade-left" data-aos-delay="300" class="sub-title">{{ $slider['title'] }}</h2>
+                                            <h2 data-aos="fade-left" data-aos-delay="300" class="sub-title">
+                                                {{ $slider['title'] }}</h2>
                                             <br>
                                             <div class="slider-btn" data-aos="fade-right" data-aos-delay="500">
                                                 <a href="{{ $slider['link'] }}" class="default-btn">
@@ -207,7 +208,7 @@
                     foreach ($villageOfficials as $index => $al) : ?>
                     <div class="single-project" style="margin: -13px auto 25px;" data-aos="fade-up"
                         data-aos-delay="<?php echo 400 + $index * 100; ?>">
-                        <div id="main_image" >
+                        <div id="main_image">
                             <img src="frontend/assets/images/services/background.jpg" alt="<?php echo $al['name']; ?>"
                                 loading="lazy" style="border-radius: 10px">
                         </div>
@@ -353,5 +354,44 @@
         </section>
     @endif
 
+    <section class="events-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>APBD</h2>
+            </div>
+
+            @if (!empty($apbd1Data['data']))
+                <div class="row justify-content-center">
+                    <canvas id="chart1" width="400" height="100"></canvas>
+                </div>
+            @endif
+        </div>
+    </section>
+
     <!-- End Events Area -->
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apbd1Data = JSON.parse('{!! json_encode($apbd1Data) !!}');
+            const apbd2Data = JSON.parse('{!! json_encode($apbd2Data) !!}');
+            const apbd3Data = JSON.parse('{!! json_encode($apbd3Data) !!}');
+
+            new Chart(document.getElementById('chart1'), {
+                type: 'bar', // Or choose another chart type
+                data: {
+                    labels: ['APBD'],
+                    datasets: [apbd1Data, apbd2Data, apbd3Data]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+    </script>
+@endpush
