@@ -8,7 +8,7 @@
         }
 
         .umkm-thumbnail {
-            width: 250px !important;
+            width: 15.625rem !important;
             height: auto;
             /* object-fit: cover; */
             transition: transform 0.3s ease;
@@ -206,17 +206,18 @@
                     @php $i = 0; @endphp
                     <?php 
                     foreach ($villageOfficials as $index => $al) : ?>
-                    <div class="single-project" style="margin: -13px auto 25px;" data-aos="fade-up"
+                    <div class="single-project" style="margin: -0.8125rem auto 1.5625rem;" data-aos="fade-up"
                         data-aos-delay="<?php echo 400 + $index * 100; ?>">
                         <div id="main_image">
                             <img src="frontend/assets/images/services/background.jpg" alt="<?php echo $al['name']; ?>"
-                                loading="lazy" style="border-radius: 10px">
+                                loading="lazy" style="border-radius: .625rem">
                         </div>
 
                         <div id="overlay_image"
                             style="
                                 position: absolute;
-                                right: 10px;
+                                bottom: .625rem;
+                                right: .625rem;
                                 width: 7rem">
                             <img src="{{ Storage::url('official/' . $al['image']) }}" alt="<?php echo $al['name']; ?>"
                                 loading="lazy">
@@ -314,7 +315,7 @@
                                 <div class="single-blog-box">
                                     <a href="#" class="umkm-thumbnail-link"
                                         style="display: flex; justify-content: center; align-items: center;">
-                                        <img class="umkm-thumbnail" style="max-width: 150px !important; "
+                                        <img class="umkm-thumbnail" style="max-width: 9.375rem !important; "
                                             src="{{ Storage::url('umkm_images/' . $umkm->images->first()->image) }}"
                                             alt="{{ $umkm['judul'] }}">
                                     </a>
