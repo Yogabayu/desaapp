@@ -1397,8 +1397,9 @@ Hero Slider Area Style
 
 .hero-slider-item {
   /* height: 720px; */
-  background-image: -webkit-gradient(linear, left top, right top, from(#f1faf4), to(#e7f4eb));
-  background-image: linear-gradient(to right, #f1faf4, #e7f4eb);
+  /* background-image: -webkit-gradient(linear, left top, right top, from(#f1faf4), to(#e7f4eb));
+  background-image: linear-gradient(to right, #f1faf4, #e7f4eb); */
+  background-image: url("../../../frontend/assets/images/ground.jpeg");
   position: relative;
   z-index: 1;
 }
@@ -1426,6 +1427,15 @@ Hero Slider Area Style
   font-size: 16px;
   padding: 5px 20px;
   border-radius: 50px;
+}
+.hero-slider-content .sub-title {
+  background-color: #d4f1e1;
+  color: #00aa55;
+  display: inline-block;
+  /* margin-bottom: 15px;
+  font-size: 16px;*/
+  padding: 5px 20px;
+  border-radius: 50px; 
 }
 
 .hero-slider-content h1 {
@@ -2583,7 +2593,6 @@ Project Area Style
 .single-project {
   position: relative;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .single-project::before {

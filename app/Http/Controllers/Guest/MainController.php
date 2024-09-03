@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\GeneralInfo;
 use App\Models\Umkm;
+use App\Models\VillageOfficial;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -31,9 +33,6 @@ class MainController extends Controller
             'dusun' => $village->total_dusun,
             'rt' => $village->total_rt,
             'umkm' => Umkm::count(),
-            // 'slider' => [
-            //     ['judul' => 'Selamat Datang ']
-            // ],
             'budayaList' => [
                 [
                     'judul' => 'Tari Tradisional Ponorogo',
@@ -43,38 +42,11 @@ class MainController extends Controller
             ],
             'logo' => ['kddesa' => 'cepoko']
         ];
-        $artikelList = [
-            [
-                'id' => 1,
-                'gambar' => 'blog-1.jpg',
-                'kategori' => 'Kategori 1',
-                'tgl_upload' => '2023-08-01 14:30:00',
-                'judul' => 'Judul Artikel 1',
-                'slug' => 'slug-artikel-1',
-                'kddesa' => 'desa1'
-            ],
-            [
-                'id' => 2,
-                'gambar' => 'blog-1.jpg',
-                'kategori' => 'Kategori 2',
-                'tgl_upload' => '2023-08-02 14:30:00',
-                'judul' => 'Judul Artikel 2',
-                'slug' => 'slug-artikel-2',
-                'kddesa' => 'desa2'
-            ],
-            [
-                'id' => 3,
-                'gambar' => 'blog-1.jpg',
-                'kategori' => 'Kategori 2',
-                'tgl_upload' => '2023-08-02 14:30:00',
-                'judul' => 'Judul Artikel 2',
-                'slug' => 'slug-artikel-2',
-                'kddesa' => 'desa2'
-            ],
-            // Add more dummy articles as needed
-        ];
+        $artikelList = Article::orderBy('publish_date', 'desc')->limit(6)->get();
+        $umkmList = Umkm::orderBy('created_at', 'desc')->limit(6)->get();
+        $villageOfficials = VillageOfficial::orderBy('created_at', 'desc')->limit(6)->get();
 
-        return view('pages.guest.home', compact('sliders', 'data', 'artikelList'));
+        return view('pages.guest.home', compact('sliders', 'data', 'artikelList', 'umkmList', 'villageOfficials'));
     }
 
     public function profile()

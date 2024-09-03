@@ -353,9 +353,9 @@
     display: none;
   }
   .single-project .project-content {
-    left: 0;
+    left: 2rem;
     right: 0;
-    text-align: center;
+    /* text-align: center; */
   }
   .single-project .project-content a {
     font-size: 20px;

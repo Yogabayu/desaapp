@@ -79,10 +79,9 @@
 <body>
     <!-- Start Preloader Area -->
     <div class="preloader">
-        <div class="lds-ripple" >
-            <img src="{{ $faviconUrl }}" alt="{{ $village->name ?? 'DesaKU' }}" class="logo-animate"
-                loading="lazy">
-                {{-- <strong class="desa-name">
+        <div class="lds-ripple">
+            <img src="{{ $faviconUrl }}" alt="{{ $village->name ?? 'DesaKU' }}" class="logo-animate" loading="lazy">
+            {{-- <strong class="desa-name">
                     @php
                         $villageName = $village->name ?? 'DesaKU';
                         $cleanedName = str_replace(['Desa ', 'desa ', 'DESA '], '', $villageName);
@@ -103,9 +102,8 @@
                     <div class="mobile-responsive-menu">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img style="height: 3.75rem; margin-left: 1.25rem;"
-                                    src="{{ $faviconUrl }}" alt="logo"
-                                    loading="lazy">
+                                <img style="height: 3.75rem; margin-left: 1.25rem;" src="{{ $faviconUrl }}"
+                                    alt="logo" loading="lazy">
                             </a>
                         </div>
                     </div>
@@ -156,8 +154,8 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img style="height: 3.75rem; margin-left: 1.25rem;"
-                                src="{{ $faviconUrl }}" alt="logo" loading="lazy">
+                            <img style="height: 3.75rem; margin-left: 1.25rem;" src="{{ $faviconUrl }}"
+                                alt="logo" loading="lazy">
                             <strong>{{ $village->name ?? 'DesaKU' }}</strong>
                         </a>
 
@@ -214,7 +212,7 @@
                                     loading="lazy" style="max-width: 5rem !important">
                             </a>
                         </div>
-                        <p class="text-center">Desa [Nama Desa], [Nama Kecamatan], [Nama Kabupaten], [Nama Provinsi]
+                        <p class="text-center">{{ $village->name }}, {{ $village->address }}
                         </p>
                         <div class="d-flex justify-content-center mb-3">
                             <ul class="social-icon">
@@ -235,10 +233,12 @@
                     <div class="single-footer-widget">
                         <h3>Hubungi Kami</h3>
                         <ul class="address">
-                            <li><i class="ri-map-pin-fill"></i> [Alamat Kantor]</li>
-                            <li><i class="ri-mail-open-fill"></i> <a href="mailto:[Email Desa]">[Email Desa]</a></li>
-                            <li><i class="ri-global-fill"></i> [Website]</li>
-                            <li><i class="ri-phone-fill"></i> <a href="tel:[Nomor Telepon]">[Nomor Telepon]</a></li>
+                            <li><i class="ri-map-pin-fill"></i> {{ $village->address }}</li>
+                            <li><i class="ri-mail-open-fill"></i> <a
+                                    href="mailto:{{ $village->email }}">{{ $village->email }}</a></li>
+                            <li><i class="ri-global-fill"></i> {{ $village->web }}</li>
+                            <li><i class="ri-phone-fill"></i> <a
+                                    href="tel:{{ $village->tlp }}">{{ $village->tlp }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -247,11 +247,11 @@
                     <div class="single-footer-widget">
                         <h3>Tautan Cepat</h3>
                         <ul class="quick-links">
-                            <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Profil Desa</a></li>
-                            <li><a href="#">Layanan</a></li>
-                            <li><a href="#">Berita</a></li>
-                            <li><a href="#">Kontak</a></li>
+                            <li><a href="{{ url('/') }}">Beranda</a></li>
+                            <li><a href="{{ url('/profile') }}">Profil Desa</a></li>
+                            {{-- <li><a href="{{ url('/article') }}">Layanan</a></li> --}}
+                            <li><a href="{{ url('/article') }}">Berita</a></li>
+                            {{-- <li><a href="#">Kontak</a></li> --}}
                         </ul>
                     </div>
                 </div>
