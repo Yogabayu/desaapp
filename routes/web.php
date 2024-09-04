@@ -29,6 +29,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('guest.home');
 Route::get('profile', [MainController::class, 'profile']);
 Route::get('galeri', [MainController::class, 'galeri']);
+
+Route::get('umkm', [MainController::class, 'umkm']);
+Route::get('umkm/{id}', [MainController::class, 'showUmkm'])->name('umkm.detail');
+
 Route::get('article', [MainController::class, 'article']);
 // });
 

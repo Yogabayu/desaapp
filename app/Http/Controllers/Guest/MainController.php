@@ -81,13 +81,37 @@ class MainController extends Controller
     {
         $village = GeneralInfo::first();
         $villageOfficials = VillageOfficial::orderBy('created_at', 'desc')->get();
-        $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->get();
-        return view('pages.guest.profil', compact('village', 'villageOfficials','galleries'));
+        $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->where('is_show', 1)->get();
+        return view('pages.guest.profil', compact('village', 'villageOfficials', 'galleries'));
     }
     public function galeri()
     {
-        return view('pages.guest.galeri');
+        $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->where('is_show', 1)->get();
+        // dd($galleries);
+        return view('pages.guest.galeri', compact('galleries'));
     }
+
+    public function umkm()
+    {
+        $umkmList = Umkm::with(['village', 'images'])
+            ->where('is_active', true)
+            ->paginate(12);
+        return view('pages.guest.umkm', compact('umkmList'));
+    }
+
+    public function showUmkm($slug)
+    {
+        $umkm = Umkm::with(['village', 'images', 'reviews'])->where('slug', $slug)->firstOrFail();
+        $suggestedUmkms = Umkm::with(['village', 'images'])
+            ->where('village_id', $umkm->village_id)
+            ->where('id', '!=', $umkm->id)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+        return view('pages.guest.detail.umkm-detail', compact('umkm', 'suggestedUmkms'));
+    }
+
+
     public function article()
     {
         return view('pages.guest.article');

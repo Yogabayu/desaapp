@@ -29,7 +29,7 @@ class Umkm extends Model
 
     public function village()
     {
-        return $this->belongsTo(GeneralInfo::class, 'village_id', 'id');
+        return $this->belongsTo(GeneralInfo::class, 'village_id');
     }
 
     public function images()

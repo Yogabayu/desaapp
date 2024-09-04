@@ -64,7 +64,7 @@
             }
         }
     </style>
-    @yield('css')
+    @stack('css')
     <!-- Favicon -->
     @php
         $logoPath = 'public/general_info/' . ($village->logo ?? '');

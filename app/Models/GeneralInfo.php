@@ -41,45 +41,9 @@ class GeneralInfo extends Model
         return 'slug';
     }
 
-    // Relasi dengan VillageOfficial
-    // public function villageOfficials()
-    // {
-    //     return $this->hasMany(VillageOfficial::class, 'village_id');
-    // }
+    public function umkms()
+    {
+        return $this->hasMany(Umkm::class, 'village_id');
+    }
 
-    // // Relasi dengan VillageGallery
-    // public function villageGalleries()
-    // {
-    //     return $this->hasMany(VillageGallery::class, 'village_id');
-    // }
-
-    // // Relasi dengan Article
-    // public function articles()
-    // {
-    //     return $this->hasMany(Article::class, 'village_id');
-    // }
-
-    // // Relasi dengan Umkm
-    // public function umkms()
-    // {
-    //     return $this->hasMany(Umkm::class, 'village_id');
-    // }
-
-    // // Relasi dengan Apbd
-    // public function apbds()
-    // {
-    //     return $this->hasMany(Apbd::class, 'village_id');
-    // }
-
-    // Accessor untuk mendapatkan URL logo
-    // public function getLogoUrlAttribute()
-    // {
-    //     return $this->logo ? asset('storage/' . $this->logo) : null;
-    // }
-
-    // // Accessor untuk mendapatkan URL gambar umum
-    // public function getGeneralImageUrlAttribute()
-    // {
-    //     return $this->general_image ? asset('storage/' . $this->general_image) : null;
-    // }
 }
