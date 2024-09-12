@@ -128,6 +128,7 @@
 @endpush
 
 @section('content')
+{{-- URUNG : summernote blm bisa --}}
     <div class="container my-5 mb-2">
         <div class="page-title-area bg-1 page-radius">
             <div class="container">
