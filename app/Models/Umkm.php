@@ -13,6 +13,7 @@ class Umkm extends Model
     protected $fillable = [
         'village_id',
         'slug',
+        'address',
         'name',
         'desc',
         'tlp',
@@ -41,4 +42,5 @@ class Umkm extends Model
     {
         return $this->hasMany(UmkmReview::class, 'umkm_id', 'id');
     }
+
 }

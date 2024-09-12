@@ -63,6 +63,7 @@ class UmkmController extends Controller
             $request->validate([
                 'name' => 'required',
                 'desc' => 'required',
+                'address' => 'required',
                 'tlp' => 'required',
                 'fb' => 'nullable',
                 'ig' => 'nullable',
@@ -82,6 +83,7 @@ class UmkmController extends Controller
             $umkm = new Umkm();
             $umkm->village_id = $village->id;
             $umkm->name = $request->name;
+            $umkm->address = $request->address;
             $umkm->slug = Str::slug($request->name);
             $umkm->desc = $request->desc;
             $umkm->tlp = $request->tlp;
@@ -147,9 +149,16 @@ class UmkmController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Umkm $umkm)
+    public function edit($slug)
     {
-        //
+        try {
+            $umkm = Umkm::where('slug', $slug)->with('village', 'images')->first();
+            $reviews = $umkm->reviews()->paginate(10);
+
+            return view('pages.admin.umkm.edit', compact('umkm', 'reviews'));
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
+        }
     }
 
     /**

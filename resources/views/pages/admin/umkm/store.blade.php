@@ -46,8 +46,23 @@
                                     </div>
 
                                     <div class="form-group row mb-3">
+                                        <label for="address" class="col-sm-2 col-form-label">
+                                            <i class="fas fa-map-marker-alt"></i> Alamat
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control @error('address') is-invalid @enderror"
+                                                id="address" name="address" value="{{ old('address') }}">
+                                            @error('address')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-3">
                                         <label for="tlp" class="col-sm-2 col-form-label">
-                                            <i class="fas fa-phone-alt"></i> Telepon/WhatsApp
+                                            <i class="fas fa-phone-alt"></i> WhatsApp / Tlp
                                         </label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control @error('tlp') is-invalid @enderror"

@@ -89,8 +89,8 @@
                         style="height: 15.625rem; object-fit: cover;">
                     <div class="card-body">
                         {{-- <p class="card-text">Desa Sejahtera didirikan pada tahun 1850 oleh sekelompok petani yang mencari
-                            tanah subur untuk bercocok tanam. Sejak saat itu, desa ini telah berkembang menjadi komunitas
-                            yang makmur dan harmonis.</p> --}}
+                        tanah subur untuk bercocok tanam. Sejak saat itu, desa ini telah berkembang menjadi komunitas
+                        yang makmur dan harmonis.</p> --}}
                         {!! $village->short_desc !!}
                     </div>
                 </div>
@@ -166,11 +166,11 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
                     @php $i = 0; @endphp
                     <?php 
-                    foreach ($villageOfficials as $index => $al) : ?>
+                foreach ($villageOfficials as $index => $al) : ?>
                     <div class="col" data-aos="fade-up" data-aos-delay="<?php echo 200 + $index * 100; ?>">
                         <div class="card h-100 border-0 shadow-sm">
                             {{-- <img src="{{ asset('frontend/assets/images/services/services-8.jpg') }}"
-                                    class="card-img-top" alt="Foto Kepala Desa" style="height: 12.5rem; object-fit: cover;"> --}}
+                                class="card-img-top" alt="Foto Kepala Desa" style="height: 12.5rem; object-fit: cover;"> --}}
 
                             <div id="main_image">
                                 <img src="frontend/assets/images/services/background.jpg" alt="<?php echo $al['name']; ?>"
@@ -179,10 +179,10 @@
 
                             <div id="overlay_image"
                                 style="
-                                            position: absolute;
-                                            bottom: 6.2rem;
-                                            right: .625rem;
-                                            width: 6rem">
+                                        position: absolute;
+                                        bottom: 6.2rem;
+                                        right: .625rem;
+                                        width: 6rem">
                                 <img src="{{ Storage::url('official/' . $al['image']) }}" alt="<?php echo $al['name']; ?>"
                                     loading="lazy">
                             </div>
@@ -214,30 +214,31 @@
                         <div class="section-header text-center mb-4">
                             <h2 class="display-6">Misi</h2>
                         </div>
-                        <div style="
-                                font-weight: bold;
-                                display: flex;
-                                justify-content: center;">
+                        <div
+                            style="
+                            font-weight: bold;
+                            display: flex;
+                            justify-content: center;">
                             {!! $village->misi !!}
                         </div>
                         {{-- <ul class="list-unstyled">
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <strong class="text-black">Meningkatkan kualitas sumber daya manusia</strong>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <strong class="text-black">Mengembangkan potensi ekonomi lokal</strong>
-                            </li>
-                            <li class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <strong class="text-black">Melestarikan budaya dan kearifan lokal</strong>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <strong class="text-black">Membangun infrastruktur yang berkelanjutan</strong>
-                            </li>
-                        </ul> --}}
+                        <li class="d-flex align-items-start mb-2">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong class="text-black">Meningkatkan kualitas sumber daya manusia</strong>
+                        </li>
+                        <li class="d-flex align-items-start mb-2">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong class="text-black">Mengembangkan potensi ekonomi lokal</strong>
+                        </li>
+                        <li class="d-flex align-items-start mb-2">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong class="text-black">Melestarikan budaya dan kearifan lokal</strong>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong class="text-black">Membangun infrastruktur yang berkelanjutan</strong>
+                        </li>
+                    </ul> --}}
                     </div>
                 </div>
             </div>

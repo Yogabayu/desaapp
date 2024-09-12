@@ -82,7 +82,7 @@ class MainController extends Controller
         $village = GeneralInfo::first();
         $villageOfficials = VillageOfficial::orderBy('created_at', 'desc')->get();
         $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->where('is_show', 1)->get();
-        return view('pages.guest.profil', compact('village', 'villageOfficials', 'galleries'));
+        return view('pages.guest.profile', compact('village', 'villageOfficials', 'galleries'));
     }
     public function galeri()
     {
