@@ -288,7 +288,6 @@
     </div>
     <!-- End Go Top Area -->
 
-    @stack('scripts')
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -326,7 +325,7 @@
     <script src="{{ asset('frontend/assets/js/ajaxchimp.min.js') }}"></script>
     <!-- Custom JS -->
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
-
+    @stack('scripts')
     <script>
         if ($(".category").length !== 0) {
             $(".category").click(function() {

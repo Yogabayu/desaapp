@@ -101,14 +101,15 @@ class MainController extends Controller
 
     public function showUmkm($slug)
     {
-        $umkm = Umkm::with(['village', 'images', 'reviews'])->where('slug', $slug)->firstOrFail();
+        $umkm = Umkm::with(['village', 'images'])->where('slug', $slug)->firstOrFail();
         $suggestedUmkms = Umkm::with(['village', 'images'])
             ->where('village_id', $umkm->village_id)
             ->where('id', '!=', $umkm->id)
             ->inRandomOrder()
             ->take(5)
             ->get();
-        return view('pages.guest.detail.umkm-detail', compact('umkm', 'suggestedUmkms'));
+        $reviews = $umkm->reviews()->paginate(10);
+        return view('pages.guest.detail.umkm-detail', compact('umkm', 'suggestedUmkms', 'reviews'));
     }
 
 

@@ -315,6 +315,7 @@
                                 <div class="single-blog-box">
                                     <a href="#" class="umkm-thumbnail-link"
                                         style="display: flex; justify-content: center; align-items: center;">
+                                        
                                         <img class="umkm-thumbnail" style="max-width: 9.375rem !important; "
                                             src="{{ Storage::url('umkm_images/' . $umkm->images->first()->image) }}"
                                             alt="{{ $umkm['judul'] }}">

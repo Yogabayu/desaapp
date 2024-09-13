@@ -21,12 +21,11 @@
             margin-bottom: 1.25rem;
         }
 
-        /* .umkm-info-card,
-                .suggested-umkm-card {
-                    position: sticky;
-                    top: 1.25rem;
-                    margin-bottom: 1.25rem;
-                } */
+        .suggested-umkm-card {
+            position: sticky;
+            top: 18.25rem;
+            margin-bottom: 1.25rem;
+        }
 
         .review-item {
             border-bottom: .0625rem solid #eee;
@@ -64,11 +63,11 @@
 
         @media (max-width: 61.9375rem) {
 
-            /* .umkm-info-card,
-                    .suggested-umkm-card {
-                        position: static;
-                        margin-top: 1.25rem;
-                    } */
+            .suggested-umkm-card {
+                position: static;
+                margin-top: 1.25rem;
+            }
+
             .umkm-info-card {
                 position: static;
                 margin-top: 1.25rem;
@@ -123,12 +122,12 @@
             border-radius: 5px;
         }
     </style>
-    
+
     <link rel="stylesheet" href="{{ asset('admin/library/summernote/dist/summernote-bs4.min.css') }}">
 @endpush
 
 @section('content')
-{{-- URUNG : summernote blm bisa --}}
+    {{-- URUNG : summernote blm bisa --}}
     <div class="container my-5 mb-2">
         <div class="page-title-area bg-1 page-radius">
             <div class="container">
@@ -216,24 +215,32 @@
                         </div>
                         <div class="form-group">
                             <label for="comment">Komentar Anda:</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
-                            {{-- <textarea class="form-control @error('desc') is-invalid @enderror" id="desc" name="desc">{{ old('desc') }}</textarea> --}}
+                            {{-- <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea> --}}
+                            <textarea class="form-control @error('comment') is-invalid @enderror" id="comment" name="comment"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+                        </div>
                     </form>
                 </div>
 
                 <h3>Ulasan</h3>
                 <div class="umkm-reviews">
-                    @forelse($umkm->reviews as $review)
-                        <div class="review-item">
-                            <h5>{{ $review->name }}</h5>
-                            <p class="text-muted">{{ $review->created_at->format('d M Y') }}</p>
-                            <p>{{ $review->comment }}</p>
+                    @forelse($reviews as $review)
+                        <div class="review-item bg-light p-3 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <h5>{{ $review->name }}</h5>
+                                <p class="text-muted">{{ $review->created_at->format('d M Y') }}</p>
+                            </div>
+                            <p>{{ $review->review }}</p>
                         </div>
                     @empty
-                        <p>Belum ada ulasan untuk UMKM ini.</p>
+                        <p class="text-center text-muted">Belum ada ulasan untuk UMKM ini.</p>
                     @endforelse
+
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $reviews->links() }}
+                    </div>
                 </div>
             </div>
 
@@ -241,6 +248,7 @@
                 <div class="card umkm-info-card mb-4">
                     <div class="card-body">
                         <h4 class="card-title">Informasi UMKM</h4>
+                        <hr>
                         @if ($umkm->tlp)
                             <p><strong>Telepon:</strong> {{ $umkm->tlp }}</p>
                         @endif
@@ -260,30 +268,35 @@
                 </div>
 
                 <!-- Suggested UMKMs -->
-                {{-- <div class="card suggested-umkm-card">
+                <div class="card suggested-umkm-card ">
                     <div class="card-body">
                         <h4 class="card-title">UMKM Lainnya</h4>
+                        <hr>
                         @foreach ($suggestedUmkms as $suggestedUmkm)
-                            <div class="suggested-umkm-item">
+                            <div class="suggested-umkm-item" style="cursor: pointer; border-radius: 0.25rem; transition: 0.3s;"
+                            onmouseover="this.style.border='1px solid #ccc'"
+                            onmouseout="this.style.border='none'" onclick="window.location.href='{{ route('umkm.detail', $suggestedUmkm->slug) }}'">
                                 <img src="{{ $suggestedUmkm->images->first() ? Storage::url('umkm_images/' . $suggestedUmkm->images->first()->image) : asset('frontend/assets/images/services/services-8.jpg') }}"
                                     alt="{{ $suggestedUmkm->name }}">
                                 <div>
                                     <h6><a
-                                            href="{{ route('umkm.show', $suggestedUmkm->slug) }}">{{ $suggestedUmkm->name }}</a>
+                                            href="{{ route('umkm.detail', $suggestedUmkm->slug) }}">{{ $suggestedUmkm->name }}</a>
                                     </h6>
                                     <small>{{ $suggestedUmkm->village->name }}</small>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
 @push('scripts')
+    <!-- Now load Summernote -->
     <script src="{{ asset('admin/library/summernote/dist/summernote-bs4.min.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#comment').summernote({
