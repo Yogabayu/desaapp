@@ -200,7 +200,7 @@
                 <!-- Reviews -->
                 <div class="mt-4">
                     <h4>Tulis Ulasan</h4>
-                    <form action="{{ route('umkmreview.store', $umkm->id) }}" method="POST">
+                    <form action="{{ route('umkm.addReview', $umkm->id) }}" method="POST">
                         @csrf
                         <input type="hidden" name="umkm_id" value="{{ $umkm->id }}">
                         <div class="form-group row">
@@ -232,7 +232,7 @@
                                 <h5>{{ $review->name }}</h5>
                                 <p class="text-muted">{{ $review->created_at->format('d M Y') }}</p>
                             </div>
-                            <p>{{ $review->review }}</p>
+                            <p>{!! $review->review !!}</p>
                         </div>
                     @empty
                         <p class="text-center text-muted">Belum ada ulasan untuk UMKM ini.</p>

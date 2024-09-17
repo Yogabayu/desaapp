@@ -31,9 +31,12 @@ Route::get('profile', [MainController::class, 'profile']);
 Route::get('galeri', [MainController::class, 'galeri']);
 
 Route::get('umkm', [MainController::class, 'umkm']);
+Route::post('umkm', [MainController::class, 'addReview'])->name('umkm.addReview');
 Route::get('umkm/{id}', [MainController::class, 'showUmkm'])->name('umkm.detail');
 
 Route::get('article', [MainController::class, 'article']);
+Route::post('article', [MainController::class, 'addArticleComment'])->name('article.addComment');
+Route::get('article/{id}', [MainController::class, 'showArticle'])->name('article.detail');
 // });
 
 Route::prefix('admin')->group(function () {

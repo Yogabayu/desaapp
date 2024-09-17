@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\Apbd;
 use App\Models\Article;
+use App\Models\ArticleComment;
 use App\Models\GeneralInfo;
 use App\Models\Umkm;
+use App\Models\UmkmReview;
 use App\Models\VillageGallery;
 use App\Models\VillageOfficial;
 use Illuminate\Http\Request;
@@ -112,9 +114,65 @@ class MainController extends Controller
         return view('pages.guest.detail.umkm-detail', compact('umkm', 'suggestedUmkms', 'reviews'));
     }
 
+    public function addReview(Request $request){
+        $request->validate([
+            'umkm_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'comment' => 'required',
+        ]);
+        UmkmReview::create([
+            'umkm_id' => $request->umkm_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'review' => $request->comment
+        ]);
+        return back()->with('success', 'Review added successfully.');
+    }
+
 
     public function article()
     {
-        return view('pages.guest.article');
+        $articleList = Article::with(['village'])
+            ->where('status', true)
+            ->paginate(12);
+
+        // dd($articleList);
+        return view('pages.guest.article', compact('articleList'));
+    }
+
+    public function showArticle($slug)
+    {
+        $article = Article::with(['village'])->where('slug', $slug)->firstOrFail();
+        $suggestedArticles = Article::with(['village'])
+            ->where('village_id', $article->village_id)
+            ->where('id', '!=', $article->id)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+        $mostViewedArticles = Article::with(['village'])
+            ->where('village_id', $article->village_id)
+            ->inRandomOrder()
+            ->take(5)
+            ->get();
+        $reviews = $article->comments()->where('status', true)->paginate(10);
+        return view('pages.guest.detail.article-detail', compact('article', 'suggestedArticles','mostViewedArticles', 'reviews'));
+    }
+
+    public function addArticleComment(Request $request){
+        $request->validate([
+            'article_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'comment' => 'required',
+        ]);
+        ArticleComment::create([
+            'article_id' => $request->article_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment,
+            'status' => 1,
+        ]);
+        return back()->with('success', 'Review added successfully.');
     }
 }

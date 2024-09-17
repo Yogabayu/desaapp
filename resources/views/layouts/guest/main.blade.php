@@ -72,7 +72,13 @@
             ? asset('storage/general_info/' . $village->logo)
             : asset('frontend/assets/images/favicon.png');
     @endphp
-
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" />
     <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <!-- Title -->
     <title>@yield('title') {{ $village->name ?? 'DesaKU' }} </title>
@@ -126,23 +132,23 @@
                             <div class="others-option justify-content-center d-flex align-items-center">
                                 <ul>
                                     <li>
-                                        <a href="#" class="call">
+                                        <a href="{{ $village->wa }}" class="call">
                                             <i class="ri-phone-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="call">
+                                        <a href="{{ $village->wa }}" class="call">
                                             <i class="ri-whatsapp-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="call">
+                                        <a href="{{ $village->fb }}" class="call">
                                             <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="call">
-                                            <i class="ri-map-line"></i>
+                                        <a href="{{ $village->ig }}" class="call">
+                                            <i class="ri-instagram-line"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -183,9 +189,8 @@
                             <div class="others-options">
                                 <ul>
                                     <li>
-                                        <a href="#" class="call">
-                                            <i class="ri-phone-fill"></i>
-                                            {{-- {{ $logo['telepon'] }} --}}
+                                        <a href="{{ $village->wa }}" class="call">
+                                            <i class="ri-whatsapp-fill"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -326,6 +331,20 @@
     <!-- Custom JS -->
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
     @stack('scripts')
+    <!-- Toastr JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        @if (session('success'))
+            toastr.success("{!! session()->get('success') !!}");
+        @endif
+
+        @if (session('error'))
+            toastr.error("{!! session('error') !!}");
+        @endif
+    </script>
     <script>
         if ($(".category").length !== 0) {
             $(".category").click(function() {
