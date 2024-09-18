@@ -59,9 +59,9 @@
                         </div>
                     </div>
 
-                    <div class="slider-shape">
+                    {{-- <div class="slider-shape">
                         <img src="{{ asset('frontend/assets/images/coretan.png') }}" alt="Slider Shape" loading="lazy">
-                    </div>
+                    </div> --}}
                 </div>
             @endforeach
         </div>

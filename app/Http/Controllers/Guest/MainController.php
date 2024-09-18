@@ -22,13 +22,13 @@ class MainController extends Controller
                 'title' => 'Desa dengan sejuta keindahan',
                 'link' => '/profile',
                 'type' => 'image',
-                'file' => 'https://picsum.photos/seed/picsum/630/1024'
+                'file' => asset('frontend/assets/images/reog.png')
             ],
             [
                 'title' => 'Desa dengan sejuta keragaman',
                 'link' => '/profile',
                 'type' => 'image',
-                'file' => 'https://picsum.photos/seed/picsum/630/1024'
+                'file' => asset('frontend/assets/images/reog.png')
             ],
         ];
         $village = GeneralInfo::first();
