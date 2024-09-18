@@ -5,41 +5,62 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    @php
+        $logoPath = 'public/general_info/' . ($village->logo ?? '');
+        $faviconUrl = Storage::exists($logoPath)
+            ? asset('storage/general_info/' . $village->logo)
+            : asset('frontend/assets/images/favicon.png');
+    @endphp
+    
+    <!-- SEO meta tags -->
+    <title>@yield('title') {{ $village->name ?? 'DesaKU' }} - Website Resmi Desa</title>
+    <meta name="description" content="Website resmi {{ $village->name ?? 'DesaKU' }}. Temukan informasi tentang desa kami, layanan, acara, dan atraksi lokal.">
+    <meta name="keywords" content="desa, {{ $village->name ?? 'DesaKU' }}, pemerintahan desa, masyarakat, pembangunan desa, Indonesia">
+    <meta name="author" content="Pemerintah Desa {{ $village->name ?? 'DesaKU' }}">
+    
+    <!-- Specify language and country -->
+    <meta http-equiv="content-language" content="id-ID">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="{{ $village->name ?? 'DesaKU' }} - Website Resmi Desa">
+    <meta property="og:description" content="Jelajahi {{ $village->name ?? 'DesaKU' }}, masyarakat kami, layanan, dan atraksi lokal.">
+    <meta property="og:image" content="{{ $faviconUrl }}">
+    <meta property="og:locale" content="id_ID">
 
-    <!-- Bootstrap Min CSS -->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url('/') }}">
+    <meta property="twitter:title" content="{{ $village->name ?? 'DesaKU' }} - Website Resmi Desa">
+    <meta property="twitter:description" content="Temukan keindahan dan potensi Desa {{ $village->name ?? 'DesaKU' }}.">
+    <meta property="twitter:image" content="{{ $faviconUrl }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url('/') }}">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('frontend/assets/css/style.css') }}" as="style">
+    <link rel="preload" href="{{ asset('frontend/assets/js/jquery.min.js') }}" as="script">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-    <!-- Owl Theme Default Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.theme.default.min.css') }}">
-    <!-- Owl Carousel Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
-    <!-- Remixicon CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/remixicon.css') }}">
-    <!-- Flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/flaticon.css') }}">
-    <!-- Meanmenu Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.min.css') }}">
-    <!-- Animate Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
-    <!-- Magnific Popup Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.min.css') }}">
-    <!-- Odometer Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/odometer.min.css') }}">
-    <!-- Date Picker Min CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/date-picker.min.css') }}">
-    <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- C3 Chart css -->
-    {{-- <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script> --}}
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -65,23 +86,35 @@
         }
     </style>
     @stack('css')
-    <!-- Favicon -->
-    @php
-        $logoPath = 'public/general_info/' . ($village->logo ?? '');
-        $faviconUrl = Storage::exists($logoPath)
-            ? asset('storage/general_info/' . $village->logo)
-            : asset('frontend/assets/images/favicon.png');
-    @endphp
-    <!-- Toastr CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
-        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
-        crossorigin="anonymous" />
+        
     <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
-    <!-- Title -->
-    <title>@yield('title') {{ $village->name ?? 'DesaKU' }} </title>
+    
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOrganization",
+      "name": "{{ $village->name ?? 'DesaKU' }}",
+      "url": "{{ url('/') }}",
+      "logo": "{{ $faviconUrl }}",
+      "description": "Website resmi {{ $village->name ?? 'DesaKU' }}. Temukan informasi tentang desa kami, layanan, acara, dan atraksi lokal.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ $village->name ?? 'DesaKU' }}",
+        "addressRegion": "{{ $village->address ?? 'Nama Kecamatan' }}",
+        "addressCountry": "ID"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ $village->tlp ?? '08123456789' }}",
+        "contactType": "customer service"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -272,7 +305,8 @@
     <div class="copy-right-area">
         <div class="container">
             <p>
-                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com"  target="_blank">Yoga
+                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com"
+                    target="_blank">Yoga
                     Dev</a>
             </p>
         </div>
