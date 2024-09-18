@@ -1,20 +1,26 @@
-
 # Website Desa
 
 Solusi website open-source untuk desa-desa di Indonesia, memadukan transparansi pemerintahan dengan kemudahan akses informasi bagi masyarakat.
 Fitur Utama
 
 🏠 Profil desa yang komprehensif ✅
+
 📊 Dashboard data desa yang interaktif✅
+
 📝 Sistem manajemen konten untuk berita desa✅
+
 📅 Kalender acara desa ❌
+
 💼 Informasi layanan pemerintah desa ✅
+
 📸 Galeri foto dan video kegiatan desa✅
+
 💬 Forum diskusi masyarakat ❌
+
 📱 Desain responsif untuk akses mudah via desktop dan mobile✅
 
-Dikembangkan menggunakan Laravel dan Bootstrap, project ini bertujuan untuk meningkatkan transparansi, partisipasi masyarakat, dan efisiensi administrasi desa di era digital.
 
+Dikembangkan menggunakan Laravel dan Bootstrap, project ini bertujuan untuk meningkatkan transparansi, partisipasi masyarakat, dan efisiensi administrasi desa di era digital.
 
 ## Authors
 
