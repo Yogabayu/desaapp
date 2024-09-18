@@ -89,13 +89,6 @@
     <div class="preloader">
         <div class="lds-ripple">
             <img src="{{ $faviconUrl }}" alt="{{ $village->name ?? 'DesaKU' }}" class="logo-animate" loading="lazy">
-            {{-- <strong class="desa-name">
-                    @php
-                        $villageName = $village->name ?? 'DesaKU';
-                        $cleanedName = str_replace(['Desa ', 'desa ', 'DESA '], '', $villageName);
-                    @endphp
-                    {{ $cleanedName }}
-                </strong> --}}
         </div>
     </div>
     <!-- End Preloader Area -->
@@ -132,22 +125,22 @@
                             <div class="others-option justify-content-center d-flex align-items-center">
                                 <ul>
                                     <li>
-                                        <a href="{{ $village->wa }}" class="call">
+                                        <a href="{{ $village->wa }}" class="call" target="_blank">
                                             <i class="ri-phone-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ $village->wa }}" class="call">
+                                        <a href="{{ $village->wa }}" class="call" target="_blank">
                                             <i class="ri-whatsapp-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ $village->fb }}" class="call">
+                                        <a href="{{ $village->fb }}" class="call" target="_blank">
                                             <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ $village->ig }}" class="call">
+                                        <a href="{{ $village->ig }}" class="call" target="_blank">
                                             <i class="ri-instagram-line"></i>
                                         </a>
                                     </li>
@@ -189,7 +182,7 @@
                             <div class="others-options">
                                 <ul>
                                     <li>
-                                        <a href="{{ $village->wa }}" class="call">
+                                        <a href="{{ $village->wa }}" class="call" target="_blank">
                                             <i class="ri-whatsapp-fill"></i>
                                         </a>
                                     </li>
@@ -279,7 +272,7 @@
     <div class="copy-right-area">
         <div class="container">
             <p>
-                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com">Yoga
+                Copyright <i class="ri-copyright-line"></i> 2024. <a href="https://portofolio.yogabayuap.com"  target="_blank">Yoga
                     Dev</a>
             </p>
         </div>

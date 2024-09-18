@@ -73,7 +73,7 @@
         <div class="umkm-list mt-5">
             <div class="row">
                 @forelse($articleList as $article)
-                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}" onclick="window.location.href='{{ route('article.detail', $article->slug) }}'" style="cursor: pointer;">
                         <div class="card h-100 umkm-card">
                             @if ($article->thumbnail)
                                 <img src="{{ Storage::url('article/' . $article->thumbnail) }}" class="card-img-top"
@@ -88,10 +88,10 @@
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
+                                    {{-- <div class="btn-group">
                                         <a href="{{ route('article.detail', $article->slug) }}"
                                             class="btn btn-sm btn-outline-secondary">View</a>
-                                    </div>
+                                    </div> --}}
                                     <small class="text-muted">{{ $village->name }}</small>
                                 </div>
                             </div>
