@@ -36,7 +36,7 @@ class VillageGalleryFactory extends Factory
             'name' => $this->faker->name,
             'desc' => $this->faker->text,
             'image' => $this->faker->imageUrl(640, 480, 'people', true),
-            'boolean' => $this->faker->boolean
+            'is_show' => $this->faker->boolean
         ];
     }
 }
