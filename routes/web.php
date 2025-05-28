@@ -40,11 +40,14 @@ Route::get('article/{id}', [MainController::class, 'showArticle'])->name('articl
 // });
 
 Route::prefix('admin')->group(function () {
-    Route::get('login', [AuthController::class, 'index'])->name('admin.login');
-    Route::post('login', [AuthController::class, 'login'])->name('auth.login');
+    Route::middleware('throttle:5,1')->group(function () {
+        Route::get('login', [AuthController::class, 'index'])->name('admin.login');
+        Route::post('login', [AuthController::class, 'login'])->name('auth.login');
+    });
+    
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'throttle:60,1'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
         //profile
