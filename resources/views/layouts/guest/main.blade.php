@@ -41,6 +41,7 @@
     <link rel="canonical" href="{{ url('/') }}">
 
     <!-- Preload critical assets -->
+    <link rel="preload" href="{{ asset('frontend/assets/css/font-style-family.css') }}" as="style">
     <link rel="preload" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" as="style">
     <link rel="preload" href="{{ asset('frontend/assets/css/style.css') }}" as="style">
     <link rel="preload" href="{{ asset('frontend/assets/js/jquery.min.js') }}" as="script">
@@ -196,19 +197,19 @@
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                                    <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                                    <a href="{{ url('/') }}" class="nav-link">Home</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('profile') ? 'active' : '' }}">
                                     <a href="{{ url('/profile') }}" class="nav-link">Profile</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('galeri') ? 'active' : '' }}">
-                                    <a href="{{ url('/galeri') }}" class="nav-link">Galeri</a>
+                                    <a href="{{ url('/galeri') }}" class="nav-link">Galery</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a href="{{ url('/umkm') }}" class="nav-link">UMKM</a>
+                                    <a href="{{ url('/umkm') }}" class="nav-link">Sustainability</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('article') ? 'active' : '' }}">
-                                    <a href="{{ url('/article') }}" class="nav-link">Artikel</a>
+                                    <a href="{{ url('/article') }}" class="nav-link">Spotlight</a>
                                 </li>
                             </ul>
 

@@ -17,7 +17,7 @@ class TypeGaleryController extends Controller
     {
         try {
             $data = TypeGalery::all();
-            dd($data);
+            // dd($data);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

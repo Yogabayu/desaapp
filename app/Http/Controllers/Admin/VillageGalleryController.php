@@ -7,6 +7,7 @@ use App\Models\VillageGallery;
 use App\Http\Requests\StoreVillageGalleryRequest;
 use App\Http\Requests\UpdateVillageGalleryRequest;
 use App\Models\GeneralInfo;
+use App\Models\ProductCategory;
 use App\Models\TypeGalery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;

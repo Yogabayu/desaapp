@@ -13,6 +13,10 @@
                     href="{{ url('admin/dashboard') }}"><i class="fas fa-fire"></i> <span>Dashborad</span></a>
             </li>
             <li class="menu-header">Info umum</li>
+            <li class="{{ Route::is('product.*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('product.index') }}"><i class="fas fa-image"></i> <span>Product</span></a>
+            </li>
             <li class="{{ Route::is('general-info.*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="{{ route('general-info.index') }}"><i class="fas fa-home"></i> <span>Detail Desa</span></a>

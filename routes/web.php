@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ArticleCommentController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GeneralInfoController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TypeGaleryController;
 use App\Http\Controllers\Admin\UmkmController;
@@ -82,6 +83,9 @@ Route::prefix('admin')->group(function () {
 
         //apbd
         Route::resource('apbd', ApbdController::class);
+
+        //product
+        Route::resource('product', ProductController::class);
     });
 });
 

@@ -19,16 +19,10 @@ class MainController extends Controller
     {
         $sliders = [
             [
-                'title' => 'Desa dengan sejuta keindahan',
+                'title' => 'Lorem Ipsum',
                 'link' => '/profile',
                 'type' => 'image',
-                'file' => asset('frontend/assets/images/reog.png')
-            ],
-            [
-                'title' => 'Desa dengan sejuta keragaman',
-                'link' => '/profile',
-                'type' => 'image',
-                'file' => asset('frontend/assets/images/reog.png')
+                'file' => asset('frontend/assets/images/bg.jpeg')
             ],
         ];
         $village = GeneralInfo::first();
@@ -39,9 +33,9 @@ class MainController extends Controller
             'umkm' => Umkm::count(),
             'budayaList' => [
                 [
-                    'judul' => 'Tari Tradisional Ponorogo',
-                    'isi' => '<p>Tari Tradisional Ponorogo adalah Reog Ponorogo yang merupakan warisan budaya yang telah dilestarikan selama berabad-abad. Tarian ini menggambarkan kehidupan masyarakat desa dan keindahan alam sekitar.</p>',
-                    'data' => 'tari-cepoko.jpg'
+                    'judul' => 'World Cup Ball',
+                    'isi' => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
+                    'data' => 'bola-piala-dunia.png'
                 ]
             ],
             'logo' => ['kddesa' => 'cepoko']
