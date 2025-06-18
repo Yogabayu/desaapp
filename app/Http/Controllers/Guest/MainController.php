@@ -7,6 +7,7 @@ use App\Models\Apbd;
 use App\Models\Article;
 use App\Models\ArticleComment;
 use App\Models\GeneralInfo;
+use App\Models\ProductCategory;
 use App\Models\Umkm;
 use App\Models\UmkmReview;
 use App\Models\VillageGallery;
@@ -22,9 +23,36 @@ class MainController extends Controller
                 'title' => 'Lorem Ipsum',
                 'link' => '/profile',
                 'type' => 'image',
-                'file' => asset('frontend/assets/images/bg.jpeg')
+                'file' => asset('frontend/assets/images/bg2.jpg')
+            ],
+            [
+                'title' => 'Lorem Ipsum',
+                'link' => '/profile',
+                'type' => 'image',
+                'file' => asset('frontend/assets/images/bg2.jpg')
+            ],
+            [
+                'title' => 'Lorem Ipsum',
+                'link' => '/profile',
+                'type' => 'image',
+                'file' => asset('frontend/assets/images/bg5.jpg')
+            ],
+            [
+                'title' => 'Lorem Ipsum',
+                'link' => '/profile',
+                'type' => 'image',
+                'file' => asset('frontend/assets/images/bg6.jpg')
+            ],
+            [
+                'title' => 'Lorem Ipsum',
+                'link' => '/profile',
+                'type' => 'image',
+                'file' => asset('frontend/assets/images/bg7.jpg')
             ],
         ];
+
+
+
         $village = GeneralInfo::first();
         $data = [
             'penduduk' => $village->total_population,
@@ -80,6 +108,13 @@ class MainController extends Controller
         $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->where('is_show', 1)->get();
         return view('pages.guest.profile', compact('village', 'villageOfficials', 'galleries'));
     }
+    public function sustainability()
+    {
+        $village = GeneralInfo::first();
+        $villageOfficials = VillageOfficial::orderBy('created_at', 'desc')->get();
+        $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->limit(8)->where('is_show', 1)->get();
+        return view('pages.guest.sustainability', compact('village', 'villageOfficials', 'galleries'));
+    }
     public function galeri()
     {
         $galleries = VillageGallery::with('type_gallery')->orderBy('id', 'desc')->where('is_show', 1)->get();
@@ -89,10 +124,10 @@ class MainController extends Controller
 
     public function umkm()
     {
-        $umkmList = Umkm::with(['village', 'images'])
-            ->where('is_active', true)
-            ->paginate(12);
-        return view('pages.guest.umkm', compact('umkmList'));
+        $categories = ProductCategory::with(['products' => function($query) {
+            $query->where('status', 1);
+        }])->get();
+        return view('pages.guest.umkm', compact('categories'));
     }
 
     public function showUmkm($slug)
@@ -169,4 +204,6 @@ class MainController extends Controller
         ]);
         return back()->with('success', 'Review added successfully.');
     }
+
+
 }

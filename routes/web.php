@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('guest.home');
 Route::get('profile', [MainController::class, 'profile']);
 Route::get('galeri', [MainController::class, 'galeri']);
+Route::get('sustainability', [MainController::class, 'sustainability']);
 
 Route::get('umkm', [MainController::class, 'umkm']);
 Route::post('umkm', [MainController::class, 'addReview'])->name('umkm.addReview');
@@ -86,6 +87,7 @@ Route::prefix('admin')->group(function () {
 
         //product
         Route::resource('product', ProductController::class);
+        Route::post('category', [ProductController::class, 'addCategory'])->name('product.addCategory');
     });
 });
 

@@ -78,7 +78,6 @@
             width: 5`00px!important;
             height: 500px!important;
             margin: 20px;
-            border: 5px solid rgba(0, 0, 0, 0.1);
             border-radius :7px;
         }
 
@@ -106,56 +105,77 @@
         .img-spotlight img {
                 height: 250px;
         }
+
+        .customers-logo{
+            place-items: center;
+        }
+
+
+        .slider, .slide {
+        width: 100%;
+        height: 95vh;
+        position: relative;
+        }
+
+        .slide {
+        background-size: cover;
+        background-position: center;
+        }
+
+        .caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white!important;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0px;
+        }
+
+        .caption h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: whitesmoke;
+        }
+
+        .caption p {
+        font-size: 1.3rem;
+        }
+
+        .main-header.main-header-slick { 
+            height: 77vh;
+        }
+        .main-header.main-header-slick .slide{ 
+            height: 100vh;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
 @endpush
 @section('content')
+
+
+
+   
+    
     <!-- Start Hero Slider Area -->
     <section class="hero-slider-area">
-        <div class="hero-slider owl-theme owl-carousel" data-slider-id="1">
-            @foreach ($sliders as $slider)
-                <div class="hero-slider-item">
-                    <div class="d-table">
-                        <div class="d-table-cell">
-                            <div class="container-fluid">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <div class="hero-slider-content pr-15">
-                                            <span class="top-title" data-aos="fade-up" data-aos-delay="100">
-                                                Selamat Datang di Portal Web {{ $village->name }}
-                                            </span>
-                                            <h2 data-aos="fade-left" data-aos-delay="300" class="sub-title">
-                                                {{ $slider['title'] }}</h2>
-                                            <br>
-                                            <div class="slider-btn" data-aos="fade-right" data-aos-delay="500">
-                                                <a href="{{ $slider['link'] }}" class="default-btn">
-                                                    Lihat selengkapnya
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        @if ($slider['type'] == 'image')
-                                            <div class='slider-img pl-15'>
-                                                <img src="{{ $slider['file'] }}" alt='{{ $slider['title'] }}'
-                                                    class="curousel-image" data-aos="fade-up" data-aos-delay="700"
-                                                    loading="lazy">
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    {{-- main header --}}
+        <div class="main-header main-header-slick col-lg-12">
+            @foreach ($sliders as $index_slider => $slider_data)
+            <div class="slide" style="background-image: url('{{ $slider_data['file'] }}')">
+                    <div class="caption">
+                        <h1>Long Way Enterprise Co., Ltd</h1>
+                        <p>Lorem Ipsum</p>
                     </div>
-
-                    {{-- <div class="slider-shape">
-                        <img src="{{ asset('frontend/assets/images/coretan.png') }}" alt="Slider Shape" loading="lazy">
-                    </div> --}}
-                </div>
+            </div>
             @endforeach
         </div>
+        {{-- end-main header --}}
+        <br><br><br><br><br>
 
         <!-- Start Carousel Thumbs -->
         <div class="thumbs-wrap">
@@ -236,7 +256,7 @@
                 <div class="slider-for">
                     <div class="col-lg-3 col-md-6">
                         <div class="col-12 customers-box">
-                            <div class="services-shape">
+                            <div class="services-shape customers-logo">
                                 <img class="" src="{{ asset('frontend/assets/images/customers/Adidas.png') }}" alt="Image" loading="lazy">
                             </div>
                             <h3>
@@ -251,7 +271,7 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="col-12 customers-box">
-                            <div class="services-shape">
+                            <div class="services-shape customers-logo">
                                 <img class="" src="{{ asset('frontend/assets/images/customers/puma.png') }}" alt="Image" loading="lazy">
                             </div>
                             <h3>
@@ -265,65 +285,12 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="col-12 customers-box">
-                            <div class="services-shape">
+                            <div class="services-shape customers-logo">
                                 <img class="" src="{{ asset('frontend/assets/images/customers/mizuno.png') }}" alt="Image" loading="lazy">
                             </div>
                             <h3>
                                 <a href="javascript:;">
                                     MIZUNO
-                                </a>
-                            </h3>
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="col-12 customers-box">
-                            <div class="services-shape">
-                                <img class="" src="{{ asset('frontend/assets/images/customers/Adidas.png') }}" alt="Image" loading="lazy">
-                            </div>
-                            <h3>
-                                <a href="javascript:;">
-                                    ADIDAS
-                                </a>
-                            </h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="col-12 customers-box">
-                            <div class="services-shape">
-                                <img class="" src="{{ asset('frontend/assets/images/customers/Adidas.png') }}" alt="Image" loading="lazy">
-                            </div>
-                            <h3>
-                                <a href="javascript:;">
-                                    ADIDAS
-                                </a>
-                            </h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="col-12 customers-box">
-                            <div class="services-shape">
-                                <img class="" src="{{ asset('frontend/assets/images/customers/Adidas.png') }}" alt="Image" loading="lazy">
-                            </div>
-                            <h3>
-                                <a href="javascript:;">
-                                    ADIDAS
-                                </a>
-                            </h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="col-12 customers-box">
-                            <div class="services-shape">
-                                <img class="" src="{{ asset('frontend/assets/images/customers/Adidas.png') }}" alt="Image" loading="lazy">
-                            </div>
-                            <h3>
-                                <a href="javascript:;">
-                                    ADIDAS
                                 </a>
                             </h3>
                             <p></p>
@@ -470,6 +437,16 @@
 
     $('.facility').slick({
         slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: false,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        infinite: true
+    });
+
+    $('.main-header-slick').slick({
+        slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         fade: false,

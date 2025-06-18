@@ -200,16 +200,19 @@
                                     <a href="{{ url('/') }}" class="nav-link">Home</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('profile') ? 'active' : '' }}">
-                                    <a href="{{ url('/profile') }}" class="nav-link">Profile</a>
+                                    <a href="{{ url('/profile') }}" class="nav-link">About us</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('galeri') ? 'active' : '' }}">
-                                    <a href="{{ url('/galeri') }}" class="nav-link">Galery</a>
+                                    <a href="{{ url('/galeri') }}" class="nav-link">Facility</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a href="{{ url('/umkm') }}" class="nav-link">Sustainability</a>
+                                    <a href="{{ url('/umkm') }}" class="nav-link">Product</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="{{ url('/sustainability') }}" class="nav-link">Sustainability</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('article') ? 'active' : '' }}">
-                                    <a href="{{ url('/article') }}" class="nav-link">Spotlight</a>
+                                    <a href="{{ url('/article') }}" class="nav-link">Contact us</a>
                                 </li>
                             </ul>
 
@@ -242,7 +245,7 @@
                     <div class="single-footer-widget">
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{ url('/') }}" class="logo">
-                                <img src="{{ asset('frontend/assets/images/ponorogo.png') }}" alt="Logo Desa"
+                                <img src="{{ $faviconUrl }} alt="Logo Desa"
                                     loading="lazy" style="max-width: 5rem !important">
                             </a>
                         </div>

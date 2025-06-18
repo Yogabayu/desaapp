@@ -75,11 +75,11 @@
                 @csrf
                 @method('POST')
                 <div class="form-group">
-                    <label for="user">Email/NIP</label>
+                    <label for="user">Email</label>
                     <input id="user" type="text" class="form-control" name="text" tabindex="1" required
                         autofocus>
                     <div class="invalid-feedback">
-                        Harap isi Email atau NIP anda
+                        Harap isi Email anda
                     </div>
                 </div>
 
